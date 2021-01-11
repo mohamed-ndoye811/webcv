@@ -1,38 +1,119 @@
-.App {
+:root {
+  --primary-color: #f4dffd;
+  --secondary-color: #660066;
+  --accent-color: #bc6eba;
+  --accent-color2: #92278f;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--primary-color);
+}
+
+
+/* SLIDER STYLES */
+
+.sliderLogo {
+  position: absolute;
+  z-index: 12;
+  fill: var(--primary-color);
+  left: 50%;
+  top: 49%;
+  width: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.slider{
+  z-index: 10;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.slider-bg1{
+  background-color: var(--secondary-color);
+}
+
+.slider-bg2{
+  background-color: var(--accent-color2);
+}
+
+.slider-bg3{
+  background-color: var(--accent-color);
+}
+
+/*----------*/
+
+/* HUB DISPLAY */
+
+.hub-container{
+  position: fixed;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-container{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 37%;
+  height: 100vh;
+  background-color: var(--accent-color2);
+  color: var(--primary-color);
+}
+
+
+/* LEFT PANE */
+.info{
+  position: relative;
+  top: 10%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+.info p{
+  font-family: 'Asap Condensed', sans-serif;
+  font-size: 30px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.info-name{
+  font-weight: 700;
+  font-style: italic;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.info-details{
+  height: 100vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.info-picture{
+  position: relative;
+  border-radius: 50%;
+  width: 300px;
+  height: 450px;
+  background-color: var(--primary-color);
+  margin-bottom: 10%;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
