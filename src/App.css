@@ -142,10 +142,14 @@ body {
 
 .info-picture {
   border-radius: 50%;
-  width: 275px;
-  height: 275px;
+  width: 300px;
+  height: 300px;
   margin-bottom: 12%;
   background-color: var(--primary-color);
 }
+
+/* ----------- */
+
+/* RIGHT PANEL */
 
 /* ----------- */

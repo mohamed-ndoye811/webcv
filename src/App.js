@@ -1,8 +1,10 @@
 import { React, useEffect, useState } from "react";
 import { gsap, Expo } from "gsap";
+import $ from "jquery";
 
 // COMPONENTS IMPORT
-import Infos from "./pages/Infos";
+import Infos from "./components/Infos";
+import Header from "./components/Header";
 
 // Styles
 import "./App.css";
@@ -47,11 +49,15 @@ function App() {
         },
         "-=0.6"
       );
+
+      setTimeout(() => {
+        $(".slider").hide();
+      }, 1800);
     }
 
     setInterval(() => {
       sliderOut();
-    }, 1500);
+    }, 2000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -81,7 +87,9 @@ function App() {
         <div className="left-container">
           <Infos loadingEnded={loadingEnded} />
         </div>
-        <div className="right-container"> zdz </div>
+        <div className="right-container">
+          <Header />
+        </div>
       </div>
     </>
   );
