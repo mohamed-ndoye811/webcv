@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import { gsap, Expo } from "gsap";
 
 // COMPONENTS IMPORT
-import Infos from "./components/Infos";
+import Infos from "./pages/Infos";
 
 // Styles
 import "./App.css";
