@@ -5,7 +5,7 @@
   --accent-color2: #92278f;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Asap+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 
 body,
 html {
@@ -17,8 +17,8 @@ html {
 
 body {
   background-color: var(--primary-color);
+  overflow: hidden;
 }
-
 
 /* SLIDER STYLES */
 
@@ -32,7 +32,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.slider{
+.slider {
   z-index: 10;
   position: fixed;
   top: 0%;
@@ -42,15 +42,15 @@ body {
   overflow: hidden;
 }
 
-.slider-bg1{
+.slider-bg1 {
   background-color: var(--secondary-color);
 }
 
-.slider-bg2{
+.slider-bg2 {
   background-color: var(--accent-color2);
 }
 
-.slider-bg3{
+.slider-bg3 {
   background-color: var(--accent-color);
 }
 
@@ -58,7 +58,7 @@ body {
 
 /* HUB DISPLAY */
 
-.hub-container{
+.hub-container {
   position: fixed;
   z-index: 0;
   width: 100%;
@@ -66,11 +66,33 @@ body {
   overflow: scroll;
   display: flex;
   flex-direction: row;
+  overflow: hidden;
 }
 
-.left-container{
+.left-container {
   position: fixed;
   left: 0;
+  top: 0;
+  width: 37%;
+  height: 100vh;
+  color: var(--primary-color);
+}
+
+.right-container {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 63%;
+  height: 100vh;
+  color: var(--secondary-color);
+}
+
+/* ---------- */
+
+/* LEFT PANE */
+
+.info-background {
+  position: fixed;
   top: 0;
   width: 37%;
   height: 100vh;
@@ -78,42 +100,53 @@ body {
   color: var(--primary-color);
 }
 
-
-/* LEFT PANE */
-.info{
+.info {
   position: relative;
-  top: 10%;
-  height: 100vh;
+  opacity: 1;
+  top: 12%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 
-
-
-.info p{
-  font-family: 'Asap Condensed', sans-serif;
-  font-size: 30px;
+.info p {
+  font-family: "Asap Condensed", sans-serif;
   text-align: center;
 }
 
-.info-name{
+.text {
+  font-size: 30px;
+}
+
+.info-details {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.info-details p {
+  display: inline-block;
+  margin-top: -10px;
+}
+
+.info-name {
   font-weight: 700;
   font-style: italic;
+  margin-top: 0;
 }
 
-.info-details{
-  height: 100vh;
+.info-name {
+  font-size: 50px;
 }
 
-.info-picture{
-  position: relative;
+.info-picture {
   border-radius: 50%;
-  width: 300px;
-  height: 450px;
+  width: 275px;
+  height: 275px;
+  margin-bottom: 12%;
   background-color: var(--primary-color);
-  margin-bottom: 10%;
 }
 
-
+/* ----------- */
