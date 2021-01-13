@@ -11,7 +11,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 
 // Styles
-import "./App.css";
+import "./styles/App.css";
 
 function App() {
   const routes = [
@@ -73,17 +73,17 @@ function App() {
 
   const onEnter = (node) => {
     // Entering animation
-    gsap.from(node.children[0].firstElementChild, 0.6, {
+    gsap.from(node.children[0].firstElementChild, 1.8, {
       y: 100,
       opacity: 0,
-      delay: 1.2,
+      delay: 0.4,
       ease: Expo.easeInOut,
     });
   };
 
   const onExit = (node) => {
     // Exiting animation
-    gsap.to(node.children[0].firstElementChild, 0.6, {
+    gsap.to(node.children[0].firstElementChild, 1.8, {
       y: -100,
       opacity: 0,
       ease: Expo.easeInOut,
@@ -117,8 +117,9 @@ function App() {
         <div className="left-container">
           <Infos loadingEnded={loadingEnded} />
         </div>
+
         <div className="right-container">
-          <Header />
+          <Header loadingEnded={loadingEnded} />
           {routes.map(({ path, Component }) => (
             <Route key={path} path={path} exact>
               {({ match }) => (
