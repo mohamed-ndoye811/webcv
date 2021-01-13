@@ -8,13 +8,14 @@ const Header = () => {
         <nav>
           <ul>
             <li>
-              <NavLink to="/about">About</NavLink>
+              <NavLink to="/" exact>
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/more">More</NavLink>
-            </li>
-            <li>
-              <NavLink to="/moha">Moha</NavLink>
+              <NavLink to="/about" exact>
+                About
+              </NavLink>
             </li>
           </ul>
         </nav>

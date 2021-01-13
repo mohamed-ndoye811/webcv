@@ -1,15 +1,24 @@
 import { React, useEffect, useState } from "react";
+import { Route } from "react-router-dom";
 import { gsap, Expo } from "gsap";
+import { CSSTransition } from "react-transition-group";
 import $ from "jquery";
 
 // COMPONENTS IMPORT
 import Infos from "./components/Infos";
 import Header from "./components/Header";
+import Home from "./pages/Home";
+import About from "./pages/About";
 
 // Styles
 import "./App.css";
 
 function App() {
+  const routes = [
+    { path: "/", name: "Home", Component: Home },
+    { path: "/about", name: "About", Component: About },
+  ];
+
   const [loadingEnded, setLoadingEnded] = useState(false);
 
   var tl = gsap.timeline();
@@ -31,35 +40,55 @@ function App() {
     );
   }
 
+  function sliderOut() {
+    tl.to([".slider-bg1", ".slider-bg2", ".slider-bg3"], 1.2, {
+      y: "-100%",
+      stagger: 0.1,
+      ease: Expo.easeInOut,
+    }).to(
+      ".sliderLogo",
+      0.1,
+      {
+        opacity: 0,
+        onStart: () => {
+          setLoadingEnded(true);
+        },
+      },
+      "-=0.6"
+    );
+
+    setTimeout(() => {
+      $(".slider").hide();
+    }, 1800);
+  }
+
   useEffect(() => {
     logoAnimation();
-    function sliderOut() {
-      tl.to([".slider-bg1", ".slider-bg2", ".slider-bg3"], 1.2, {
-        y: "-100%",
-        stagger: 0.1,
-        ease: Expo.easeInOut,
-      }).to(
-        ".sliderLogo",
-        0.1,
-        {
-          opacity: 0,
-          onStart: () => {
-            setLoadingEnded(true);
-          },
-        },
-        "-=0.6"
-      );
-
-      setTimeout(() => {
-        $(".slider").hide();
-      }, 1800);
-    }
 
     setInterval(() => {
       sliderOut();
     }, 2000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const onEnter = (node) => {
+    // Entering animation
+    gsap.from(node.children[0].firstElementChild, 0.6, {
+      y: 100,
+      opacity: 0,
+      delay: 1.2,
+      ease: Expo.easeInOut,
+    });
+  };
+
+  const onExit = (node) => {
+    // Exiting animation
+    gsap.to(node.children[0].firstElementChild, 0.6, {
+      y: -100,
+      opacity: 0,
+      ease: Expo.easeInOut,
+    });
+  };
 
   return (
     <>
@@ -83,12 +112,31 @@ function App() {
         <div className="slider-bg2 slider"> </div>
         <div className="slider-bg1 slider"> </div>
       </div>
+
       <div className="hub-container">
         <div className="left-container">
           <Infos loadingEnded={loadingEnded} />
         </div>
         <div className="right-container">
           <Header />
+          {routes.map(({ path, Component }) => (
+            <Route key={path} path={path} exact>
+              {({ match }) => (
+                <CSSTransition
+                  in={match != null}
+                  timeout={1200}
+                  onExit={onExit}
+                  onEntering={onEnter}
+                  classNames="page"
+                  unmountOnExit
+                >
+                  <div className="page">
+                    <Component />
+                  </div>
+                </CSSTransition>
+              )}
+            </Route>
+          ))}
         </div>
       </div>
     </>

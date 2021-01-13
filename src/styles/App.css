@@ -1,0 +1,206 @@
+:root {
+  --primary-color: #f4dffd;
+  --secondary-color: #660066;
+  --accent-color: #bc6eba;
+  --accent-color2: #92278f;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Asap+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--primary-color);
+  overflow: hidden;
+}
+
+/* HEADER */
+
+nav ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.navlink{
+  color: var(--accent-color);
+  font-variant-caps: normal;
+  text-decoration: none;
+  font-size: 25px;
+  margin-left: 30px;
+  font-weight: 700;
+  position: relative;
+  transition-duration: 1s;
+}
+
+.navlink-active{
+  position: relative;
+  color: var(--secondary-color);
+}
+
+/* ---------- */
+
+/* SLIDER STYLES */
+
+.sliderLogo {
+  position: absolute;
+  z-index: 12;
+  fill: var(--primary-color);
+  left: 50%;
+  top: 49%;
+  width: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.slider {
+  z-index: 10;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.slider-bg1 {
+  background-color: var(--secondary-color);
+}
+
+.slider-bg2 {
+  background-color: var(--accent-color2);
+}
+
+.slider-bg3 {
+  background-color: var(--accent-color);
+}
+
+/*----------*/
+
+/* HUB DISPLAY */
+
+.hub-container {
+  position: fixed;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.left-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 37%;
+  height: 100vh;
+  color: var(--primary-color);
+}
+
+.right-container {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 63%;
+  height: 100vh;
+  color: var(--secondary-color);
+}
+
+/* ---------- */
+
+/* LEFT PANE */
+
+.info-background {
+  position: fixed;
+  top: 0;
+  width: 37%;
+  height: 100vh;
+  background-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.info {
+  position: relative;
+  opacity: 1;
+  top: 12%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info p {
+  font-family: "Asap Condensed", sans-serif;
+  text-align: center;
+}
+
+.text {
+  font-size: 30px;
+}
+
+.info-details {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.info-details p {
+  display: inline-block;
+  margin-top: -10px;
+}
+
+.info-name {
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.info-name {
+  font-size: 50px;
+}
+
+.info-picture {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 12%;
+  background-color: var(--primary-color);
+}
+
+/* ----------- */
+
+/* RIGHT PANEL */
+
+.page{
+  position: absolute;
+  top: 50px;
+  background-color: #660066;
+}
+
+
+/* Page Transition */
+
+.page-enter {
+  opacity: 0;
+}
+.page-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+  transition-delay: 1200ms;
+}
+.page-exit {
+  opacity: 1;
+}
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+/* ----------- */
