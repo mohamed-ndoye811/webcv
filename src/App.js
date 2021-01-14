@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 import { Route } from "react-router-dom";
-import { gsap, Expo } from "gsap";
+import { gsap, Power4 } from "gsap";
 import { CSSTransition } from "react-transition-group";
 import $ from "jquery";
 
@@ -27,14 +27,14 @@ function App() {
     tl.from("#logo_M", 1, {
       x: -100,
       opacity: 0,
-      ease: Expo.easeInOut,
+      ease: Power4.easeInOut,
     }).from(
       "#logo_N",
       1,
       {
         x: 100,
         opacity: 0,
-        ease: Expo.easeInOut,
+        ease: Power4.easeInOut,
       },
       "-=1"
     );
@@ -44,7 +44,7 @@ function App() {
     tl.to([".slider-bg1", ".slider-bg2", ".slider-bg3"], 1.2, {
       y: "-100%",
       stagger: 0.1,
-      ease: Expo.easeInOut,
+      ease: Power4.easeInOut,
     }).to(
       ".sliderLogo",
       0.1,
@@ -73,20 +73,22 @@ function App() {
 
   const onEnter = (node) => {
     // Entering animation
-    gsap.from(node.children[0].firstElementChild, 1.8, {
-      y: 100,
+    gsap.from(node.children, 0.6, {
+      y: 30,
+      delay: 0.6,
       opacity: 0,
-      delay: 0.4,
-      ease: Expo.easeInOut,
+      ease: Power4.easeInOut,
+      stagger: 0.2,
     });
   };
 
   const onExit = (node) => {
     // Exiting animation
-    gsap.to(node.children[0].firstElementChild, 1.8, {
-      y: -100,
+    gsap.to(node.children, 0.6, {
+      y: -50,
       opacity: 0,
-      ease: Expo.easeInOut,
+      ease: Power4.easeInOut,
+      stagger: 0.2,
     });
   };
 
@@ -125,7 +127,7 @@ function App() {
               {({ match }) => (
                 <CSSTransition
                   in={match != null}
-                  timeout={1200}
+                  timeout={800}
                   onExit={onExit}
                   onEntering={onEnter}
                   classNames="page"
