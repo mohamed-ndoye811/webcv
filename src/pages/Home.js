@@ -20,10 +20,7 @@ export default function Home() {
         TextLine1="HEY! WELCOME TO"
         TextLine2="MOHAMED'S WEB RESUME"
       ></Title>
-      <div ref={(el) => (page = el)} className="content">
-        <div className="title">Blablabla</div>
-        <div className="title">Blablabla2</div>
-      </div>
+      <div ref={(el) => (page = el)} className="content"></div>
     </div>
   );
 }

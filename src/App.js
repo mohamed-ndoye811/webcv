@@ -9,6 +9,7 @@ import Infos from "./components/Infos";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 // Styles
 import "./styles/App.css";
@@ -17,6 +18,7 @@ function App() {
   const routes = [
     { path: "/", name: "Home", Component: Home },
     { path: "/about", name: "About", Component: About },
+    { path: "/contact", name: "Contact", Component: Contact },
   ];
 
   const [loadingEnded, setLoadingEnded] = useState(false);

@@ -182,7 +182,7 @@ nav ul {
 .page-container {
   position: absolute;
   top: 50px;
-  margin-left: 50px;
+  margin-left: 5%;
   overflow: hidden;
 }
 
