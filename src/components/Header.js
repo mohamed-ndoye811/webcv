@@ -23,7 +23,7 @@ export default function Header(props) {
     gsap.to(".navlink", 0.6, {
       top: "0%",
       ease: Expo.easeInOut,
-      stagger: 0.1,
+      stagger: 0.15,
     });
   }
 

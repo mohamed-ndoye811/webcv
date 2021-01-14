@@ -8,9 +8,9 @@ export default function Title({ TextLine1, TextLine2 }) {
   useEffect(() => {
     gsap.from([line1, line2], 1, {
       y: 100,
-      delay: 0.5,
+      delay: 0.8,
       ease: Expo.easeOut,
-      stagger: 0.2,
+      stagger: 0.1,
     });
   }, [line1, line2]);
 

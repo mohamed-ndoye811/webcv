@@ -37,7 +37,7 @@ nav ul {
   margin-left: 30px;
   font-weight: 700;
   position: relative;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
 }
 
 .navlink-active {
@@ -181,8 +181,8 @@ nav ul {
 
 .page-container {
   position: absolute;
-  top: 50px;
-  margin-left: 5%;
+  top: 25%;
+  margin-left: 10%;
   overflow: hidden;
 }
 
@@ -194,6 +194,15 @@ header {
 .title {
   font-weight: 700;
   font-size: 35px;
+}
+
+.page-text {
+  position: relative;
+  font-size: 23px;
+  line-break: normal;
+  font-weight: 300;
+  width: 80%;
+  left: 10%;
 }
 
 /* Page Transition */
