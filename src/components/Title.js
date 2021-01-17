@@ -6,9 +6,10 @@ export default function Title({ TextLine1, TextLine2 }) {
   let line2 = useRef(null);
 
   useEffect(() => {
-    gsap.from([line1, line2], 1, {
-      y: 100,
-      delay: 0.8,
+    gsap.from([line1, line2], {
+      duration: 1,
+      y: "200%",
+      delay: 1.2,
       ease: Expo.easeOut,
       stagger: 0.1,
     });
@@ -22,6 +23,7 @@ export default function Title({ TextLine1, TextLine2 }) {
             {TextLine1}
           </div>
         </div>
+
         <div className="titleLine2_wrapper">
           <div ref={(el) => (line2 = el)} className="titleLine2">
             {TextLine2}

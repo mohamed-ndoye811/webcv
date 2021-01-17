@@ -7,9 +7,12 @@ import $ from "jquery";
 // COMPONENTS IMPORT
 import Infos from "./components/Infos";
 import Header from "./components/Header";
+
+// PAGES
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Experience from "./pages/Experience";
 
 // Styles
 import "./styles/App.css";
@@ -19,6 +22,7 @@ function App() {
     { path: "/", name: "Home", Component: Home },
     { path: "/about", name: "About", Component: About },
     { path: "/contact", name: "Contact", Component: Contact },
+    { path: "/experience", name: "Experience", Component: Experience },
   ];
 
   const [loadingEnded, setLoadingEnded] = useState(false);
@@ -26,14 +30,15 @@ function App() {
   var tl = gsap.timeline();
 
   function logoAnimation() {
-    tl.from("#logo_M", 1, {
+    tl.from("#logo_M", {
+      duration: 1,
       x: -100,
       opacity: 0,
       ease: Power4.easeInOut,
     }).from(
       "#logo_N",
-      1,
       {
+        duration: 1,
         x: 100,
         opacity: 0,
         ease: Power4.easeInOut,
@@ -43,7 +48,8 @@ function App() {
   }
 
   function sliderOut() {
-    tl.to([".slider-bg1", ".slider-bg2", ".slider-bg3"], 1.2, {
+    tl.to([".slider-bg1", ".slider-bg2", ".slider-bg3"], {
+      duration: 1.2,
       y: "-100%",
       stagger: 0.1,
       ease: Power4.easeInOut,
@@ -75,8 +81,9 @@ function App() {
 
   const onEnter = (node) => {
     // Entering animation
-    gsap.from(node.children, 0.6, {
-      y: 30,
+    gsap.from(node.children, {
+      duration: 1.2,
+      y: 100,
       delay: 0.6,
       opacity: 0,
       ease: Power4.easeInOut,
@@ -86,7 +93,8 @@ function App() {
 
   const onExit = (node) => {
     // Exiting animation
-    gsap.to(node.children, 0.6, {
+    gsap.to(node.children, {
+      duration: 1.2,
       y: -50,
       opacity: 0,
       ease: Power4.easeInOut,

@@ -4,9 +4,10 @@ import { NavLink } from "react-router-dom";
 
 export default function Header(props) {
   const links = [
-    { to: "/", title: "Home" },
-    { to: "/about", title: "About" },
-    { to: "/contact", title: "Contact" },
+    { key: 1, path: "/", title: "Home" },
+    { key: 2, path: "/about", title: "About" },
+    { key: 3, path: "/contact", title: "Contact" },
+    { key: 4, path: "/experience", title: "Experience" },
   ];
 
   useEffect(() => {
@@ -32,12 +33,13 @@ export default function Header(props) {
       <header>
         <nav>
           <ul>
-            {links.map(({ to, title }) => (
+            {links.map(({ path, title }) => (
               <li>
                 <NavLink
+                  key={path}
                   className="navlink"
                   activeClassName="navlink-active"
-                  to={to}
+                  to={path}
                   exact
                 >
                   {title}

@@ -37,7 +37,6 @@ export default function Infos(props) {
       <div className="info">
         <div className="info-picture"></div>
         <div className="info-details">
-          <p className="info-name">MOHAMED NDOYE</p>
           <p className="info-adress text">
             Bat.76, HTML LA BEAUCAIRE <br /> Place des accacias
           </p>
