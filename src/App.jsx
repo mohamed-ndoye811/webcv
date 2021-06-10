@@ -1,9 +1,10 @@
-import "./App.css";
+import "./scss/main.scss";
+import ComingSoon from "./pages/ComingSoon";
 
 function App() {
   return (
     <>
-      <h1>Yurrr</h1>
+      <ComingSoon></ComingSoon>
     </>
   );
 }
