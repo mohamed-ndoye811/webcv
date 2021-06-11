@@ -4,19 +4,17 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   overflow: hidden;
 
   .side {
     font-weight: 700;
     font-size: 4.125em;
-    display: grid;
-    place-content: center;
     height: 100%;
-    width: 100%;
+    width: 100vw;
+    position: relative;
 
-    .text {
+    .textContainer {
       overflow: hidden;
 
       .letter {
@@ -26,12 +24,30 @@
   }
 
   .leftSide {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+    position: absolute;
     background-color: $clr-primary;
     color: $clr-secondary;
+
+    .letter {
+      transform: translateY(500px);
+    }
   }
 
   .rightSide {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+    position: absolute;
     background-color: $clr-secondary;
     color: $clr-primary;
+
+    .letter {
+      transform: translateY(-500px);
+    }
   }
 }

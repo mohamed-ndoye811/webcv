@@ -1,7 +1,12 @@
 import React from "react";
+import Title from "../components/Title";
 
 const ComingSoon = () => {
-  return <div>Work in progress</div>;
+  return (
+    <main className="comingSoonPage">
+      <Title text="WORK IN PROGRESS!"></Title>
+    </main>
+  );
 };
 
 export default ComingSoon;

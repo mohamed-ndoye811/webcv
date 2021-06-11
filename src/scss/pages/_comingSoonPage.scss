@@ -1,0 +1,8 @@
+@use "../abstracts/" as *;
+
+.comingSoonPage {
+  background-color: $clr-secondary;
+  color: $clr-primary;
+  height: 100%;
+  width: 100%;
+}
