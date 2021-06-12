@@ -13,24 +13,31 @@ function App() {
 
   // Opening Loader display toggle
   const opnLoadToggle = () => {
-    setopnLoadDisplay(false);
+    setopnLoadDisplay(!opnLoadDisplay);
   };
 
   const pageContentDisplayToggle = () => {
-    setpageContentDisplay(true);
+    setpageContentDisplay(!pageContentDisplay);
+  };
+
+  const startContentAnimationsToggle = () => {
+    setStartContentAnimations(!startContentAnimations);
   };
 
   useEffect(() => {
     setTimeout(() => {
       pageContentDisplayToggle();
-      setStartContentAnimations(true);
     }, 1000);
+    // eslint-disable-next-line
   }, []);
 
   return (
     <>
       {opnLoadDisplay ? (
-        <OpeningLoader finishedToggle={opnLoadToggle}></OpeningLoader>
+        <OpeningLoader
+          finishedToggle={opnLoadToggle}
+          startPageAnimation={startContentAnimationsToggle}
+        ></OpeningLoader>
       ) : (
         ""
       )}

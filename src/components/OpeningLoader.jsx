@@ -40,6 +40,7 @@ export default function OpeningLoader(props) {
 
     tl.finished.then(() => {
       props.finishedToggle();
+      props.startPageAnimation();
     });
   }
 
@@ -120,6 +121,7 @@ export default function OpeningLoader(props) {
       letterExitAnimation(1200); //we make the letters disappear
       backgroundExitAnimation(800, 1200); //and then we launch the exitAnimation of the backgrounds
     }, 1800);
+    // eslint-disable-next-line
   }, []);
 
   return (
