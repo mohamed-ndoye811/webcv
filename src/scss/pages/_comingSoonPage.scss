@@ -17,13 +17,36 @@
     justify-content: center;
     text-align: center;
 
-    .title {
-      font-size: 4em;
+    .textContent {
+      z-index: 1;
+      .title {
+        font-size: 4em;
+      }
+
+      .text {
+        font-size: 1.5em;
+        font-weight: 300;
+      }
     }
 
-    .text {
-      font-size: 1.5em;
-      font-weight: 300;
+    .particlesContainer {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      overflow: hidden;
+      z-index: 0;
+
+      .particle {
+        $particleSize: 25px;
+
+        height: $particleSize;
+        width: $particleSize;
+        border-radius: 50%;
+        background: #fff;
+        position: relative;
+      }
     }
   }
 }
