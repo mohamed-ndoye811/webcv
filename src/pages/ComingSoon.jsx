@@ -36,6 +36,25 @@ const ComingSoon = (props) => {
     });
   }
 
+  // Particles animation
+  function particlesAnimation() {
+    anime({
+      targets: ".particlesContainer > *",
+      opacity: [0, 0.4, 0],
+      translateX: function () {
+        return [0, anime.random(-500, 500) + "%"];
+      },
+      translateY: function () {
+        return [0, anime.random(-500, 500) + "%"];
+      },
+      delay: anime.stagger(25),
+      duration: 5000,
+      direction: "alternate",
+      easing: "linear",
+      loop: true,
+    });
+  }
+
   // On mount event
   useEffect(() => {
     if (props.startAnimations) {
@@ -44,6 +63,8 @@ const ComingSoon = (props) => {
         opacity: [0, 1],
       });
       loadEnterAnimation(1000);
+
+      particlesAnimation();
     } else {
       anime({
         targets: ".container",

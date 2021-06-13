@@ -17,6 +17,8 @@
     justify-content: center;
     text-align: center;
 
+    opacity: 0;
+
     .textContent {
       z-index: 1;
       .title {
@@ -33,12 +35,13 @@
       height: 100%;
       width: 100%;
       position: absolute;
+      overflow: hidden;
       left: 0;
       top: 0;
-      overflow: hidden;
       z-index: 0;
 
       .particle {
+        opacity: 0;
         $particleSize: 25px;
 
         height: $particleSize;
@@ -46,6 +49,7 @@
         border-radius: 50%;
         background: #fff;
         position: relative;
+        filter: blur(15px);
       }
     }
   }
