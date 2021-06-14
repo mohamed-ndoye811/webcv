@@ -47,9 +47,9 @@
         height: $particleSize;
         width: $particleSize;
         border-radius: 50%;
-        background: #fff;
+        background: $clr-primary;
         position: relative;
-        filter: blur(15px);
+        filter: blur(5px);
       }
     }
   }

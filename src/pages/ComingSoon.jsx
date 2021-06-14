@@ -3,7 +3,7 @@ import anime from "animejs";
 
 const ComingSoon = (props) => {
   let particlesTable = [];
-  let nbParticles = 50;
+  let nbParticles = 15;
 
   for (let i = 0; i < nbParticles; i++) {
     particlesTable[i] = i;
@@ -40,16 +40,21 @@ const ComingSoon = (props) => {
   function particlesAnimation() {
     anime({
       targets: ".particlesContainer > *",
-      opacity: [0, 0.4, 0],
+      opacity: [
+        0,
+        function () {
+          return anime.random(0.1, 0.4);
+        },
+        0,
+      ],
       translateX: function () {
-        return [0, anime.random(-500, 500) + "%"];
+        return [anime.random(-500, 500) + "%", anime.random(-500, 500) + "%"];
       },
       translateY: function () {
-        return [0, anime.random(-500, 500) + "%"];
+        return [anime.random(-500, 500) + "%", anime.random(-500, 500) + "%"];
       },
       delay: anime.stagger(25),
       duration: 5000,
-      direction: "alternate",
       easing: "linear",
       loop: true,
     });
@@ -82,10 +87,11 @@ const ComingSoon = (props) => {
           <p className="text">
             Hey, Mohamed from the past speaking to you! <br />
             Just a quick message to talk about this page. Unfortunately, there
-            is no content yet on the page. Mohamed is still working on it. So
-            for now all I have to say is welcome to this temporary page and
-            check this page time to time. Mohamed form the present will probably
-            update this as soon as he finish with the content. <br />
+            isn't any content yet on the page. Mohamed is still working on it.
+            So for now all I have to say is welcome to this temporary page. Feel
+            free to check this page now and then. Mohamed from the present will
+            probably update it as soon as he is finished with the content.
+            <br />
           </p>
           <br />
           <p className="text">See You!</p>
