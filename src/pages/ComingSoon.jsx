@@ -94,7 +94,7 @@ const ComingSoon = (props) => {
             <br />
           </p>
           <br />
-          <p className="text">See You!</p>
+          <p className="text">See you soon!</p>
         </div>
         <div className="particlesContainer">{particles}</div>
       </div>
