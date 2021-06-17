@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 
 import OpeningLoader from "./components/OpeningLoader";
 
-import ComingSoon from "./pages/ComingSoon";
+// PAGES IMPORTS
+import Home from "./pages/Home";
 
 function App() {
   // States definitions
@@ -42,7 +43,7 @@ function App() {
         ""
       )}
       {pageContentDisplay ? (
-        <ComingSoon startAnimations={startContentAnimations}></ComingSoon>
+        <Home startAnimations={startContentAnimations}></Home>
       ) : (
         ""
       )}

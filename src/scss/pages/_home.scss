@@ -1,0 +1,26 @@
+.homePage {
+  .container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+
+    img {
+      height: 80vh;
+      place-self: center end;
+    }
+
+    .text {
+      height: fit-content;
+      width: fit-content;
+      place-self: center end;
+      font-size: 4em;
+
+      &::first-line {
+        color: red;
+        text-transform: uppercase;
+        font-weight: 400;
+      }
+    }
+  }
+}
