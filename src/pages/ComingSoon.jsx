@@ -3,7 +3,7 @@ import anime from "animejs";
 
 const ComingSoon = (props) => {
   let particlesTable = [];
-  let nbParticles = 40;
+  let nbParticles = 35;
 
   for (let i = 0; i < nbParticles; i++) {
     particlesTable[i] = i;
@@ -82,7 +82,7 @@ const ComingSoon = (props) => {
     <main className="comingSoonPage">
       <div className="container">
         <div className="textContent">
-          <h2 className="title">WORK IN PROGRESS</h2>
+          <h2 className="title">-- WORK IN PROGRESS --</h2>
           <br />
           <p className="text">
             Hey, Mohamed from the past speaking to you! <br />
