@@ -43,7 +43,7 @@ const ComingSoon = (props) => {
       opacity: [
         0,
         function () {
-          return anime.random(0.1, 0.4);
+          return anime.random(0.1, 0.25);
         },
         0,
       ],
