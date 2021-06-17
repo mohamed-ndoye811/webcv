@@ -3,7 +3,7 @@ import anime from "animejs";
 
 const ComingSoon = (props) => {
   let particlesTable = [];
-  let nbParticles = 15;
+  let nbParticles = 40;
 
   for (let i = 0; i < nbParticles; i++) {
     particlesTable[i] = i;
