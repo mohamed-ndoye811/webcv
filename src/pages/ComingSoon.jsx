@@ -88,9 +88,9 @@ const ComingSoon = (props) => {
             Hey, Mohamed from the past speaking to you! <br />
             Just a quick message to talk about this page. Unfortunately, there
             isn't any content yet on the page. Mohamed is still working on it.
-            So for now all I have to say is welcome to this temporary page. Feel
-            free to check this page now and then. Mohamed from the present will
-            probably update it as soon as he is finished with the content.
+            So for now all I have to s ay is welcome to this temporary page.
+            Feel free to check this page now and then. Mohamed from the present
+            will probably update it as soon as he is finished with the content.
             <br />
           </p>
           <br />
