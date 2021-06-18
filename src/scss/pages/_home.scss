@@ -1,26 +1,50 @@
+@use "../abstracts/" as *;
+
 .homePage {
   .container {
     height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, auto);
+    width: 66%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
 
-    img {
-      height: 80vh;
-      place-self: center end;
+    .profilePic {
+      #profilePicSvg {
+        #dottedStrokeBlob-2 path {
+          stroke: $clr-primary;
+          stroke-width: 5px;
+          stroke-dasharray: 25.7px;
+        }
+      }
     }
 
     .text {
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
       height: fit-content;
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
       width: fit-content;
-      place-self: center end;
-      font-size: 4em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      font-size: 5.2em;
+      font-weight: 700;
+      line-height: 1em;
 
       &::first-line {
-        color: red;
         text-transform: uppercase;
-        font-weight: 400;
+        font-weight: 300;
+        font-size: 0.825em;
+        place-self: center center;
       }
     }
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 400;
   }
 }

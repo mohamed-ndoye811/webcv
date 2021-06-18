@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       pageContentDisplayToggle();
-    }, 1000);
+    }, 1500);
     // eslint-disable-next-line
   }, []);
 
