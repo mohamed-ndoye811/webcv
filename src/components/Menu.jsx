@@ -97,15 +97,6 @@ export default function Menu(props) {
           easing: "easeInQuint",
         });
 
-        // Background animation
-        tl.add(
-          {
-            targets: ".menuBackground",
-            translateY: "-100vh",
-          },
-          "+=200"
-        );
-
         // cross to hamburger animation
         tl.add(
           {
@@ -125,14 +116,20 @@ export default function Menu(props) {
           "-=800"
         );
 
-        // bar color switch animation
+        // Background animation
         tl.add(
           {
-            targets: ".bar",
-            backgroundColor: "#ffe1c8",
+            targets: ".menuBackground",
+            translateY: "-100vh",
           },
-          "-=800"
+          "+=200"
         );
+
+        // bar color switch animation
+        tl.add({
+          targets: ".bar",
+          backgroundColor: "#ffe1c8",
+        });
         break;
 
       // Log an error otherwise
