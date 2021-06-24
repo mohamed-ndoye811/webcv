@@ -6,6 +6,9 @@ import OpeningLoader from "./components/OpeningLoader";
 // PAGES IMPORTS
 import Home from "./pages/Home";
 
+// COMPONENTS IMPORTS
+import Menu from "./components/Menu";
+
 function App() {
   // States definitions
   const [opnLoadDisplay, setopnLoadDisplay] = useState(true); // The state of the opening Loader
@@ -43,7 +46,10 @@ function App() {
         ""
       )}
       {pageContentDisplay ? (
-        <Home startAnimations={startContentAnimations}></Home>
+        <>
+          <Menu startAnimations={startContentAnimations}></Menu>
+          <Home startAnimations={startContentAnimations}></Home>
+        </>
       ) : (
         ""
       )}
