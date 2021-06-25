@@ -1,5 +1,6 @@
 import "./scss/main.scss";
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 
 import OpeningLoader from "./components/OpeningLoader";
 
@@ -35,24 +36,37 @@ function App() {
     // eslint-disable-next-line
   }, []);
 
+  let routesList = [
+    {
+      path: "/",
+      component: <Home startAnimations={startContentAnimations}></Home>,
+    },
+  ];
+
   return (
     <>
-      {opnLoadDisplay ? (
-        <OpeningLoader
-          finishedToggle={opnLoadToggle}
-          startPageAnimation={startContentAnimationsToggle}
-        ></OpeningLoader>
-      ) : (
-        ""
-      )}
-      {pageContentDisplay ? (
-        <>
-          <Menu startAnimations={startContentAnimations}></Menu>
-          <Home startAnimations={startContentAnimations}></Home>
-        </>
-      ) : (
-        ""
-      )}
+      <BrowserRouter>
+        {opnLoadDisplay ? (
+          <OpeningLoader
+            finishedToggle={opnLoadToggle}
+            startPageAnimation={startContentAnimationsToggle}
+          ></OpeningLoader>
+        ) : null}
+        {pageContentDisplay ? (
+          <>
+            <Menu startAnimations={startContentAnimations}></Menu>
+            {routesList.map((route) => {
+              return (
+                <Route exact path={route.path}>
+                  {route.component}
+                </Route>
+              );
+            })}
+          </>
+        ) : (
+          ""
+        )}
+      </BrowserRouter>
     </>
   );
 }

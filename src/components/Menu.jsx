@@ -2,16 +2,18 @@
 import { React, useEffect, useState } from "react";
 import anime from "animejs";
 import * as colors from "../scss/abstracts/colors.module.scss"; // Scss colors variables object
+import { Link } from "react-router-dom";
 
 export default function Menu(props) {
   const [menuDisplayed, setMenuDisplayed] = useState(false);
   const [loadedOnce, setLoadedOnce] = useState(false);
 
   const linksList = [
-    { title: "Work", link: "/" },
-    { title: "Education", link: "/" },
-    { title: "Skills", link: "/" },
-    { title: "Experience", link: "/" },
+    { title: "Home", link: "/" },
+    { title: "Work", link: "/work" },
+    { title: "Education", link: "/education" },
+    { title: "Skills", link: "/skills" },
+    { title: "Experience", link: "/experience" },
   ];
 
   // Enter animation
@@ -73,7 +75,7 @@ export default function Menu(props) {
     }
   }
 
-  function handleMenuClick() {
+  function menuDisplayedToggle() {
     setMenuDisplayed(!menuDisplayed);
   }
 
@@ -132,33 +134,14 @@ export default function Menu(props) {
 
       // Hide the menu
       case false:
-        // cross to hamburger animation
-        tl.add({
-          targets: ".bar:last-child",
-          keyframes: [{ rotate: "0deg" }, { bottom: 0 }],
-          easing: "easeOutQuint",
-        });
-
-        tl.add(
-          {
-            targets: ".bar:first-child",
-            keyframes: [{ rotate: "0deg" }, { top: 0 }],
-            easing: "easeOutQuint",
-          },
-          "-=800"
-        );
-
         // NavLinks animation
-        tl.add(
-          {
-            targets: ".navLinks",
-            translateY: 100,
-            delay: anime.stagger(50),
-            duration: 600,
-            easing: "easeInQuint",
-          },
-          "-=600"
-        );
+        tl.add({
+          targets: ".navLinks",
+          translateY: 100,
+          delay: anime.stagger(50),
+          duration: 600,
+          easing: "easeInQuint",
+        });
 
         // Background animation
         tl.add(
@@ -170,10 +153,32 @@ export default function Menu(props) {
         );
 
         // bar color switch animation
-        tl.add({
-          targets: ".bar",
-          backgroundColor: colors.primary,
-        });
+        tl.add(
+          {
+            targets: ".bar",
+            backgroundColor: colors.primary,
+          },
+          "-=800"
+        );
+
+        // cross to hamburger animation
+        tl.add(
+          {
+            targets: ".bar:last-child",
+            keyframes: [{ rotate: "0deg" }, { bottom: 0 }],
+            easing: "easeOutQuint",
+          },
+          "-=200"
+        );
+
+        tl.add(
+          {
+            targets: ".bar:first-child",
+            keyframes: [{ rotate: "0deg" }, { top: 0 }],
+            easing: "easeOutQuint",
+          },
+          "-=800"
+        );
         break;
 
       // Log an error otherwise
@@ -191,7 +196,7 @@ export default function Menu(props) {
 
   return (
     <div className="menuContainer">
-      <div className="hamburgerIcon" onClick={handleMenuClick}>
+      <div className="hamburgerIcon" onClick={menuDisplayedToggle}>
         <span className="bar"></span>
         <span className="bar"></span>
       </div>
@@ -201,10 +206,13 @@ export default function Menu(props) {
             {linksList.map((link) => {
               return (
                 <li>
-                  <a href={link.link} className="navLinks">
-                    {" "}
-                    {link.title}{" "}
-                  </a>
+                  <Link
+                    className="navLinks"
+                    onClick={menuDisplayedToggle}
+                    to={link.link}
+                  >
+                    {link.title}
+                  </Link>
                 </li>
               );
             })}
