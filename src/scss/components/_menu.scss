@@ -11,7 +11,7 @@
     left: 50%;
     transform: translateX(-50%);
     top: 4vh;
-    z-index: 51;
+    z-index: 52;
     display: grid;
     place-content: center;
     height: -webkit-fit-content;
@@ -44,19 +44,18 @@
   }
 
   .wrapper {
-    width: 66vw;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
-    position: relative;
+    position: absolute;
+    display: grid;
+    place-content: center;
     z-index: 51;
   }
 
   nav {
-    position: absolute;
     height: 80vh;
-    width: 30vw;
-    top: 50vh;
-    transform: translateY(-50%);
-    right: 0;
+    width: fit-content;
     padding: 7em 0;
 
     ul {
@@ -69,6 +68,7 @@
 
       li {
         overflow: hidden;
+        position: relative;
         a {
           display: block;
           text-decoration: none;
@@ -76,6 +76,24 @@
           font-size: 3em;
           font-weight: 700;
           text-transform: uppercase;
+        }
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          width: 0;
+          height: 4px;
+          bottom: 15%;
+          background-color: $clr-secondary;
+          transition: width 0.4s cubic-bezier(0.32, 0.58, 0.34, 0.99);
+          border-radius: 100px;
+        }
+
+        &:hover {
+          &::after {
+            width: 100%;
+          }
         }
       }
     }

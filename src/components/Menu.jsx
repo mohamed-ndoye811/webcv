@@ -126,30 +126,18 @@ export default function Menu(props) {
             duration: 1200,
             easing: "easeOutQuint",
           },
-          "-=400"
+          "-=800"
         );
         break;
 
       // Hide the menu
       case false:
-        // NavLinks animation
-        tl.add({
-          targets: ".navLinks",
-          translateY: 100,
-          delay: anime.stagger(50),
-          duration: 600,
-          easing: "easeInQuint",
-        });
-
         // cross to hamburger animation
-        tl.add(
-          {
-            targets: ".bar:last-child",
-            keyframes: [{ rotate: "0deg" }, { bottom: 0 }],
-            easing: "easeOutQuint",
-          },
-          "-=800"
-        );
+        tl.add({
+          targets: ".bar:last-child",
+          keyframes: [{ rotate: "0deg" }, { bottom: 0 }],
+          easing: "easeOutQuint",
+        });
 
         tl.add(
           {
@@ -160,13 +148,25 @@ export default function Menu(props) {
           "-=800"
         );
 
+        // NavLinks animation
+        tl.add(
+          {
+            targets: ".navLinks",
+            translateY: 100,
+            delay: anime.stagger(50),
+            duration: 600,
+            easing: "easeInQuint",
+          },
+          "-=600"
+        );
+
         // Background animation
         tl.add(
           {
             targets: ".menuBackground",
             translateY: "-100vh",
           },
-          "+=200"
+          "-=200"
         );
 
         // bar color switch animation
@@ -210,6 +210,7 @@ export default function Menu(props) {
             })}
           </ul>
         </nav>
+        <div className="leftDecoration"></div>
       </div>
       <div className="menuBackground"></div>
     </div>
