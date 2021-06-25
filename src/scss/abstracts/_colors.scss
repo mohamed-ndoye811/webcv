@@ -1,2 +1,7 @@
 $clr-primary: #ffe1c8;
 $clr-secondary: #2e3037;
+
+:export {
+  primary: $clr-primary;
+  secondary: $clr-secondary;
+}

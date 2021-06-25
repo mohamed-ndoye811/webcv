@@ -6,24 +6,67 @@ export default function Menu(props) {
   const [menuDisplayed, setMenuDisplayed] = useState(false);
   const [loadedOnce, setLoadedOnce] = useState(false);
 
+  const linksList = [
+    { title: "Work", link: "/" },
+    { title: "Education", link: "/" },
+    { title: "Skills", link: "/" },
+    { title: "Experience", link: "/" },
+  ];
+
   // Enter animation
   function loadEnterAnimation(duration) {
     if (props.startAnimations && loadedOnce === false) {
-      anime({
-        targets: ".container",
-        opacity: [0, 1],
-      });
-
       let tl = anime.timeline({
         easing: "easeOutExpo",
         duration: duration,
       });
 
       tl.add({
-        targets: ".bar",
-        opacity: [0, 1],
-        delay: anime.stagger(100),
+        targets: ".menuContainer",
+        opacity: 0,
       });
+
+      tl.add(
+        {
+          targets: ".menuContainer nav ul li",
+          opacity: 0,
+        },
+        "-=" + duration
+      );
+
+      tl.add(
+        {
+          targets: ".bar",
+          opacity: 0,
+        },
+        "-=" + duration
+      );
+
+      tl.add(
+        {
+          targets: ".menuContainer",
+          opacity: 1,
+        },
+        "-=" + duration / 3
+      );
+
+      tl.add(
+        {
+          targets: ".menuContainer nav ul li",
+          opacity: 1,
+        },
+        "-=" + duration
+      );
+
+      tl.add(
+        {
+          targets: ".bar",
+          translateY: [5, 0],
+          opacity: 1,
+          delay: anime.stagger(150),
+        },
+        "-=" + duration / 3
+      );
 
       setLoadedOnce(true);
     }
@@ -154,26 +197,16 @@ export default function Menu(props) {
       <div className="wrapper">
         <nav>
           <ul>
-            <li>
-              <a href="#" className="navLinks">
-                nav
-              </a>
-            </li>
-            <li>
-              <a href="#" className="navLinks">
-                nav
-              </a>
-            </li>
-            <li>
-              <a href="#" className="navLinks">
-                nav
-              </a>
-            </li>
-            <li>
-              <a href="#" className="navLinks">
-                nav
-              </a>
-            </li>
+            {linksList.map((link) => {
+              return (
+                <li>
+                  <a href={link.link} className="navLinks">
+                    {" "}
+                    {link.title}{" "}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>
