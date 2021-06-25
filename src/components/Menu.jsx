@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { React, useEffect, useState } from "react";
 import anime from "animejs";
+import * as colors from "../scss/abstracts/colors.module.scss"; // Scss colors variables object
 
 export default function Menu(props) {
   const [menuDisplayed, setMenuDisplayed] = useState(false);
@@ -95,7 +96,7 @@ export default function Menu(props) {
         tl.add(
           {
             targets: ".bar",
-            backgroundColor: "#2e3037",
+            backgroundColor: colors.secondary,
           },
           "-=800"
         );
@@ -120,7 +121,7 @@ export default function Menu(props) {
         tl.add(
           {
             targets: ".navLinks",
-            translateY: [100, 0],
+            translateY: 0,
             delay: anime.stagger(50),
             duration: 1200,
             easing: "easeOutQuint",
@@ -134,7 +135,7 @@ export default function Menu(props) {
         // NavLinks animation
         tl.add({
           targets: ".navLinks",
-          translateY: [0, 100],
+          translateY: 100,
           delay: anime.stagger(50),
           duration: 600,
           easing: "easeInQuint",
@@ -171,7 +172,7 @@ export default function Menu(props) {
         // bar color switch animation
         tl.add({
           targets: ".bar",
-          backgroundColor: "#ffe1c8",
+          backgroundColor: colors.primary,
         });
         break;
 
