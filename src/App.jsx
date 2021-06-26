@@ -6,6 +6,10 @@ import OpeningLoader from "./components/OpeningLoader";
 
 // PAGES IMPORTS
 import Home from "./pages/Home";
+import Works from "./pages/Works";
+import Experience from "./pages/Experience";
+import Skills from "./pages/Skills";
+import Education from "./pages/Education";
 
 // COMPONENTS IMPORTS
 import Menu from "./components/Menu";
@@ -41,6 +45,26 @@ function App() {
       path: "/",
       component: <Home startAnimations={startContentAnimations}></Home>,
     },
+    {
+      path: "/work",
+      component: <Works startAnimations={startContentAnimations}></Works>,
+    },
+    {
+      path: "/education",
+      component: (
+        <Education startAnimations={startContentAnimations}></Education>
+      ),
+    },
+    {
+      path: "/skills",
+      component: <Skills startAnimations={startContentAnimations}></Skills>,
+    },
+    {
+      path: "/experience",
+      component: (
+        <Experience startAnimations={startContentAnimations}></Experience>
+      ),
+    },
   ];
 
   return (
@@ -67,6 +91,7 @@ function App() {
           ""
         )}
       </BrowserRouter>
+      <div className="websiteBackground"></div>
     </>
   );
 }
