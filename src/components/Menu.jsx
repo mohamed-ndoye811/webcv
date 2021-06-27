@@ -9,10 +9,6 @@ export default function Menu(props) {
   const [loadedOnce, setLoadedOnce] = useState(false);
   const [navLinkClicked, setNavLinkClicked] = useState(false);
 
-  function navLinkClickedToggle() {
-    setNavLinkClicked(!navLinkClicked);
-  }
-
   function menuDisplayedToggle() {
     setMenuDisplayed(!menuDisplayed);
   }
