@@ -1,9 +1,12 @@
 import React from "react";
 
+//---- Component imports
+import PageTitle from "../components/PageTitle";
+
 export default function Works() {
   return (
-    <div>
-      <h1>Page Works</h1>
-    </div>
+    <>
+      <PageTitle title="Works" />
+    </>
   );
 }

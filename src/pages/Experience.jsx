@@ -1,9 +1,12 @@
 import React from "react";
 
+//---- Component imports
+import PageTitle from "../components/PageTitle";
+
 export default function Experience() {
   return (
-    <div>
-      <h1>Page Experience</h1>
-    </div>
+    <>
+      <PageTitle title="Experience" />
+    </>
   );
 }

@@ -7,6 +7,131 @@ import { Link } from "react-router-dom";
 export default function Menu(props) {
   const [menuDisplayed, setMenuDisplayed] = useState(false);
   const [loadedOnce, setLoadedOnce] = useState(false);
+  const [navLinkClicked, setNavLinkClicked] = useState(false);
+
+  function navLinkClickedToggle() {
+    setNavLinkClicked(!navLinkClicked);
+  }
+
+  function menuDisplayedToggle() {
+    setMenuDisplayed(!menuDisplayed);
+  }
+
+  // Menu toggle function: Display or hide the menu on toggle
+  function hamIconToggle() {
+    let tl = anime.timeline({
+      duration: 800,
+      easing: "easeOutExpo",
+    });
+
+    switch (menuDisplayed) {
+      // Show the menu
+      case true:
+        //We set this state to false to enable the hover effects on the link
+        setNavLinkClicked(false);
+
+        // Background animation
+        tl.add({
+          targets: ".menuBackground",
+          translateY: 0,
+        });
+
+        // bar color switch animation
+        tl.add(
+          {
+            targets: ".bar",
+            backgroundColor: colors.secondary,
+          },
+          "-=800"
+        );
+
+        // cross to hamburger animation
+        tl.add(
+          {
+            targets: ".bar:last-child",
+            keyframes: [{ bottom: "70%" }, { rotate: "45deg" }],
+          },
+          "-=800"
+        );
+        tl.add(
+          {
+            targets: ".bar:first-child",
+            keyframes: [{ top: "70%" }, { rotate: "-45deg" }],
+          },
+          "-=800"
+        );
+
+        // NavLinks animation
+        tl.add(
+          {
+            targets: ".navLinks",
+            translateY: 0,
+            delay: anime.stagger(50),
+            duration: 1200,
+            easing: "easeOutQuint",
+          },
+          "-=800"
+        );
+        break;
+
+      // Hide the menu
+      case false:
+        //We set this state to true to disable hover effects on the link
+        setNavLinkClicked(true);
+
+        // NavLinks animation
+        tl.add({
+          targets: ".navLinks",
+          translateY: 100,
+          delay: anime.stagger(50),
+          duration: 600,
+          easing: "easeInQuint",
+        });
+
+        // Background animation
+        tl.add(
+          {
+            targets: ".menuBackground",
+            translateY: "-100vh",
+          },
+          "-=200"
+        );
+
+        // bar color switch animation
+        tl.add(
+          {
+            targets: ".bar",
+            backgroundColor: colors.primary,
+          },
+          "-=800"
+        );
+
+        // cross to hamburger animation
+        tl.add(
+          {
+            targets: ".bar:last-child",
+            keyframes: [{ rotate: "0deg" }, { bottom: 0 }],
+            easing: "easeOutQuint",
+          },
+          "-=200"
+        );
+
+        tl.add(
+          {
+            targets: ".bar:first-child",
+            keyframes: [{ rotate: "0deg" }, { top: 0 }],
+            easing: "easeOutQuint",
+          },
+          "-=800"
+        );
+        break;
+
+      // Log an error otherwise
+      default:
+        console.log("--- DEBUG ---\nMenuDisplayed contains an invalid value");
+        break;
+    }
+  }
 
   const linksList = [
     { title: "Home", link: "/" },
@@ -75,122 +200,8 @@ export default function Menu(props) {
     }
   }
 
-  function menuDisplayedToggle() {
-    setMenuDisplayed(!menuDisplayed);
-  }
-
-  function hamIconToggle() {
-    let tl = anime.timeline({
-      duration: 800,
-      easing: "easeOutExpo",
-    });
-
-    switch (menuDisplayed) {
-      // Show the menu
-      case true:
-        // Background animation
-        tl.add({
-          targets: ".menuBackground",
-          translateY: 0,
-        });
-
-        // bar color switch animation
-        tl.add(
-          {
-            targets: ".bar",
-            backgroundColor: colors.secondary,
-          },
-          "-=800"
-        );
-
-        // cross to hamburger animation
-        tl.add(
-          {
-            targets: ".bar:last-child",
-            keyframes: [{ bottom: "70%" }, { rotate: "45deg" }],
-          },
-          "-=800"
-        );
-        tl.add(
-          {
-            targets: ".bar:first-child",
-            keyframes: [{ top: "70%" }, { rotate: "-45deg" }],
-          },
-          "-=800"
-        );
-
-        // NavLinks animation
-        tl.add(
-          {
-            targets: ".navLinks",
-            translateY: 0,
-            delay: anime.stagger(50),
-            duration: 1200,
-            easing: "easeOutQuint",
-          },
-          "-=800"
-        );
-        break;
-
-      // Hide the menu
-      case false:
-        // NavLinks animation
-        tl.add({
-          targets: ".navLinks",
-          translateY: 100,
-          delay: anime.stagger(50),
-          duration: 600,
-          easing: "easeInQuint",
-        });
-
-        // Background animation
-        tl.add(
-          {
-            targets: ".menuBackground",
-            translateY: "-100vh",
-          },
-          "-=200"
-        );
-
-        // bar color switch animation
-        tl.add(
-          {
-            targets: ".bar",
-            backgroundColor: colors.primary,
-          },
-          "-=800"
-        );
-
-        // cross to hamburger animation
-        tl.add(
-          {
-            targets: ".bar:last-child",
-            keyframes: [{ rotate: "0deg" }, { bottom: 0 }],
-            easing: "easeOutQuint",
-          },
-          "-=200"
-        );
-
-        tl.add(
-          {
-            targets: ".bar:first-child",
-            keyframes: [{ rotate: "0deg" }, { top: 0 }],
-            easing: "easeOutQuint",
-          },
-          "-=800"
-        );
-        break;
-
-      // Log an error otherwise
-      default:
-        console.log("--- DEBUG ---\nMenuDisplayed contains an invalid value");
-        break;
-    }
-  }
-
   useEffect(() => {
     loadEnterAnimation(1200);
-
     hamIconToggle();
   });
 
@@ -207,7 +218,9 @@ export default function Menu(props) {
               return (
                 <li>
                   <Link
-                    className="navLinks"
+                    className={
+                      navLinkClicked ? "navLinks no-hover" : "navLinks"
+                    }
                     onClick={menuDisplayedToggle}
                     to={link.link}
                   >

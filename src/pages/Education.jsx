@@ -1,9 +1,12 @@
 import React from "react";
 
+//---- Component imports
+import PageTitle from "../components/PageTitle";
+
 export default function Education() {
   return (
-    <div>
-      <h1>Page Education</h1>
-    </div>
+    <>
+      <PageTitle title="Education" />
+    </>
   );
 }
