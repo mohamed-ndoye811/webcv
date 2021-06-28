@@ -36,30 +36,35 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       pageContentDisplayToggle();
-    }, 1500);
+    }, 2000);
     // eslint-disable-next-line
   }, []);
 
   let routesList = [
     {
+      key: 1,
       path: "/",
       component: <Home startAnimations={startContentAnimations}></Home>,
     },
     {
+      key: 2,
       path: "/work",
       component: <Works startAnimations={startContentAnimations}></Works>,
     },
     {
+      key: 3,
       path: "/education",
       component: (
         <Education startAnimations={startContentAnimations}></Education>
       ),
     },
     {
+      key: 4,
       path: "/skills",
       component: <Skills startAnimations={startContentAnimations}></Skills>,
     },
     {
+      key: 5,
       path: "/experience",
       component: (
         <Experience startAnimations={startContentAnimations}></Experience>
@@ -81,7 +86,7 @@ function App() {
             <Menu startAnimations={startContentAnimations}></Menu>
             {routesList.map((route) => {
               return (
-                <Route exact path={route.path}>
+                <Route key={route.key} exact path={route.path}>
                   {route.component}
                 </Route>
               );

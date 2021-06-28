@@ -47,21 +47,6 @@ ul {
   z-index: -15;
 }
 
-h1 {
-  position: fixed;
-  color: $clr-primary;
-  transform-origin: left top;
-  transform: rotateZ(-90deg);
-  text-transform: uppercase;
-  font-size: 8em;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  top: 95%;
-  left: 0;
-  opacity: 0.2;
-}
-
 .no-hover {
   pointer-events: none;
 }

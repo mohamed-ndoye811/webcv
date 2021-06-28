@@ -2,6 +2,8 @@ import { React, useEffect } from "react";
 import "../scss/pages/_home.scss";
 import anime from "animejs";
 
+import PageTitle from "../components/PageTitle";
+
 export default function Home(props) {
   // Enter animation
   function loadEnterAnimation(duration) {
@@ -46,9 +48,15 @@ export default function Home(props) {
     if (props.startAnimations) {
       anime({
         targets: ".container",
-        opacity: [0, 1],
+        opacity: 0,
       });
-      loadEnterAnimation(1200);
+      setTimeout(() => {
+        anime({
+          targets: ".container",
+          opacity: [0, 1],
+        });
+        loadEnterAnimation(1200);
+      }, 1500);
     } else {
       anime({
         targets: ".container",
@@ -60,6 +68,7 @@ export default function Home(props) {
   return (
     <main className="homePage">
       <div className="container">
+        <PageTitle title="Home" />
         <div className="text">
           <div className="textWrapper">
             <span>I am a</span>
@@ -72,7 +81,7 @@ export default function Home(props) {
           </div>
         </div>
 
-        <div className="profilePic" style={{ transform: "scale(1.3) " }}>
+        <div className="profilePic" style={{ transform: "scale(1.5) " }}>
           <svg
             id="profilePicSvg"
             xmlns="http://www.w3.org/2000/svg"

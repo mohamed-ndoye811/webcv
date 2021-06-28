@@ -48,14 +48,14 @@ export default function Menu(props) {
         tl.add(
           {
             targets: ".bar:last-child",
-            keyframes: [{ bottom: "70%" }, { rotate: "45deg" }],
+            keyframes: [{ bottom: "73%" }, { rotate: "45deg" }],
           },
           "-=800"
         );
         tl.add(
           {
             targets: ".bar:first-child",
-            keyframes: [{ top: "70%" }, { rotate: "-45deg" }],
+            keyframes: [{ top: "73%" }, { rotate: "-45deg" }],
             complete: () => {
               setHamClicked(false);
             },
@@ -140,11 +140,11 @@ export default function Menu(props) {
   }
 
   const linksList = [
-    { title: "Home", link: "/" },
-    { title: "Work", link: "/work" },
-    { title: "Education", link: "/education" },
-    { title: "Skills", link: "/skills" },
-    { title: "Experience", link: "/experience" },
+    { key: 1, title: "Home", link: "/" },
+    { key: 2, title: "Work", link: "/work" },
+    { key: 3, title: "Education", link: "/education" },
+    { key: 4, title: "Skills", link: "/skills" },
+    { key: 5, title: "Experience", link: "/experience" },
   ];
 
   // Enter animation
@@ -155,23 +155,12 @@ export default function Menu(props) {
         duration: duration,
       });
 
-      tl.add(
-        {
-          targets: ".bar",
-          opacity: 0,
-        },
-        "-=" + duration
-      );
-
-      tl.add(
-        {
-          targets: ".bar",
-          translateY: [5, 0],
-          opacity: 1,
-          delay: anime.stagger(150),
-        },
-        "-=" + duration / 3
-      );
+      tl.add({
+        targets: ".bar",
+        translateY: [5, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(150),
+      });
 
       setLoadedOnce(true);
     }
@@ -199,7 +188,7 @@ export default function Menu(props) {
           <ul>
             {linksList.map((link) => {
               return (
-                <li>
+                <li key={link.key}>
                   <Link
                     className={
                       navLinkClicked ? "navLinks no-hover" : "navLinks"
