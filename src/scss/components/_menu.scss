@@ -41,6 +41,7 @@
     height: 100%;
     width: 100%;
     background-color: $clr-primary;
+    transform: translateY(-100%);
   }
 
   .wrapper {
@@ -51,6 +52,7 @@
     display: grid;
     place-content: center;
     z-index: 51;
+    opacity: 0;
   }
 
   nav {

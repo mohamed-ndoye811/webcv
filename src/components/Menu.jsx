@@ -4,32 +4,35 @@ import anime from "animejs";
 import * as colors from "../scss/abstracts/colors.module.scss"; // Scss colors variables object
 import { Link } from "react-router-dom";
 
+let menuDisplayed = false;
+
 export default function Menu(props) {
-  const [menuDisplayed, setMenuDisplayed] = useState(false);
   const [loadedOnce, setLoadedOnce] = useState(false);
   const [navLinkClicked, setNavLinkClicked] = useState(false);
-
-  function menuDisplayedToggle() {
-    setMenuDisplayed(!menuDisplayed);
-  }
+  const [hamClicked, setHamClicked] = useState(false);
 
   // Menu toggle function: Display or hide the menu on toggle
-  function hamIconToggle() {
+  function hamIconToggle(displayState) {
     let tl = anime.timeline({
       duration: 800,
       easing: "easeOutExpo",
     });
 
-    switch (menuDisplayed) {
+    anime({
+      targets: ".wrapper",
+      opacity: 1,
+    });
+
+    switch (displayState) {
       // Show the menu
-      case true:
+      case "display":
         //We set this state to false to enable the hover effects on the link
         setNavLinkClicked(false);
 
         // Background animation
         tl.add({
           targets: ".menuBackground",
-          translateY: 0,
+          translateY: ["-100%", 0],
         });
 
         // bar color switch animation
@@ -53,6 +56,9 @@ export default function Menu(props) {
           {
             targets: ".bar:first-child",
             keyframes: [{ top: "70%" }, { rotate: "-45deg" }],
+            complete: () => {
+              setHamClicked(false);
+            },
           },
           "-=800"
         );
@@ -61,8 +67,9 @@ export default function Menu(props) {
         tl.add(
           {
             targets: ".navLinks",
-            translateY: 0,
+            translateY: ["100%", 0],
             delay: anime.stagger(50),
+
             duration: 1200,
             easing: "easeOutQuint",
           },
@@ -71,14 +78,14 @@ export default function Menu(props) {
         break;
 
       // Hide the menu
-      case false:
+      case "hide":
         //We set this state to true to disable hover effects on the link
         setNavLinkClicked(true);
 
         // NavLinks animation
         tl.add({
           targets: ".navLinks",
-          translateY: 100,
+          translateY: [0, "100%"],
           delay: anime.stagger(50),
           duration: 600,
           easing: "easeInQuint",
@@ -117,6 +124,9 @@ export default function Menu(props) {
             targets: ".bar:first-child",
             keyframes: [{ rotate: "0deg" }, { top: 0 }],
             easing: "easeOutQuint",
+            complete: () => {
+              setHamClicked(false);
+            },
           },
           "-=800"
         );
@@ -145,39 +155,10 @@ export default function Menu(props) {
         duration: duration,
       });
 
-      tl.add({
-        targets: ".menuContainer",
-        opacity: 0,
-      });
-
-      tl.add(
-        {
-          targets: ".menuContainer nav ul li",
-          opacity: 0,
-        },
-        "-=" + duration
-      );
-
       tl.add(
         {
           targets: ".bar",
           opacity: 0,
-        },
-        "-=" + duration
-      );
-
-      tl.add(
-        {
-          targets: ".menuContainer",
-          opacity: 1,
-        },
-        "-=" + duration / 3
-      );
-
-      tl.add(
-        {
-          targets: ".menuContainer nav ul li",
-          opacity: 1,
         },
         "-=" + duration
       );
@@ -198,14 +179,20 @@ export default function Menu(props) {
 
   useEffect(() => {
     loadEnterAnimation(1200);
-    hamIconToggle();
   });
 
   return (
     <div className="menuContainer">
-      <div className="hamburgerIcon" onClick={menuDisplayedToggle}>
-        <span className="bar"></span>
-        <span className="bar"></span>
+      <div
+        className={hamClicked ? "hamburgerIcon no-hover" : "hamburgerIcon"}
+        onClick={() => {
+          menuDisplayed = menuDisplayed ? false : true;
+          setHamClicked(true);
+          hamIconToggle(menuDisplayed ? "display" : "hide");
+        }}
+      >
+        <span className={hamClicked ? "bar no-hover" : "bar"}></span>
+        <span className={hamClicked ? "bar no-hover" : "bar"}></span>
       </div>
       <div className="wrapper">
         <nav>
@@ -217,7 +204,10 @@ export default function Menu(props) {
                     className={
                       navLinkClicked ? "navLinks no-hover" : "navLinks"
                     }
-                    onClick={menuDisplayedToggle}
+                    onClick={() => {
+                      menuDisplayed = menuDisplayed ? false : true;
+                      hamIconToggle("hide");
+                    }}
                     to={link.link}
                   >
                     {link.title}
