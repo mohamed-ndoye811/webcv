@@ -1,10 +1,7 @@
 @use "../abstracts/" as *;
 
 .homePage {
-  .container {
-    height: 100%;
-    width: 66%;
-    margin: 0 auto;
+  .homeContainer {
     display: flex;
     align-items: center;
     justify-content: space-between;

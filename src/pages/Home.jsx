@@ -67,7 +67,7 @@ export default function Home(props) {
 
   return (
     <main className="homePage">
-      <div className="container">
+      <div className="container homeContainer">
         <PageTitle title="Home" />
         <div className="text">
           <div className="textWrapper">

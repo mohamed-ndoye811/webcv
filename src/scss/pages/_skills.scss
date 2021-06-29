@@ -1,0 +1,30 @@
+.skillsPage {
+  .skillsContainer {
+    position: relative;
+    width: 66%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+
+    .plIconsContainer {
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 125px;
+
+      img {
+        align-self: center;
+        justify-self: center;
+        display: block;
+        height: 125px;
+      }
+
+      .plIcons {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

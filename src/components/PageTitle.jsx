@@ -13,7 +13,7 @@ export default function PageTitle(props) {
         easing: "easeOutQuint",
         duration: 1000,
       });
-    }, 1500);
+    }, 800);
   });
 
   return (

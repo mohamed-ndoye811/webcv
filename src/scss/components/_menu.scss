@@ -5,6 +5,7 @@
   width: 100vw;
   z-index: 50;
   position: absolute;
+  pointer-events: none;
 
   .hamburgerIcon {
     position: absolute;
@@ -17,6 +18,7 @@
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
+    pointer-events: all;
 
     .bar {
       position: relative;
@@ -78,6 +80,7 @@
           font-size: 3em;
           font-weight: 700;
           text-transform: uppercase;
+          pointer-events: all;
 
           &::after {
             content: "";
