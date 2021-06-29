@@ -3,7 +3,6 @@ import anime from "animejs";
 
 //---- Component imports
 import PageTitle from "../components/PageTitle";
-import { Samy, SvgProxy } from "react-samy-svg";
 
 //---- Utils imports
 
@@ -65,6 +64,16 @@ export default function Skills(props) {
     });
   }
 
+  function hoverAnimation(target) {
+    anime({
+      targets: target,
+      rotate: [0, "360deg"],
+      scale: [1, 1.2],
+      duration: 600,
+      easing: "easeOutExpo",
+    });
+  }
+
   useEffect(() => {
     if (props.startAnimations) {
       anime({
@@ -95,10 +104,14 @@ export default function Skills(props) {
           <div className="plIconsContainer">
             {languages.map((language, key) => {
               return (
-                <div className="plIcons">
+                <div className="plIcons" key={language.key}>
                   <img
                     src={"./img/programming-languages/" + language.img + ".svg"}
                     alt={language.name + " icon"}
+                    onMouseOver={(target) => {
+                      console.log(target.target);
+                      hoverAnimation(target.target);
+                    }}
                   />
                 </div>
               );

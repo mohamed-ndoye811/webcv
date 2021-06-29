@@ -18,8 +18,12 @@ export default function PageTitle(props) {
 
   return (
     <h1 className="pageTitle">
-      {title.map((letter) => {
-        return <span className="titleLetters">{letter}</span>;
+      {title.map((letter, key) => {
+        return (
+          <span className="titleLetters" key={key}>
+            {letter}
+          </span>
+        );
       })}
     </h1>
   );
