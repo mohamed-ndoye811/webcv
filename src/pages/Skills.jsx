@@ -85,7 +85,7 @@ export default function Skills(props) {
         opacity: [0, 0],
       });
     }
-  }, []);
+  });
 
   return (
     <>
@@ -96,14 +96,8 @@ export default function Skills(props) {
             {languages.map((language, key) => {
               return (
                 <div className="plIcons">
-                  <Samy path="svg public url here">
-                    <SvgProxy
-                      selector="#Star"
-                      stroke={this.state.strokeColor}
-                    />
-                  </Samy>
                   <img
-                    src={"./img/programming-languages/" + language.img + ".png"}
+                    src={"./img/programming-languages/" + language.img + ".svg"}
                     alt={language.name + " icon"}
                   />
                 </div>

@@ -1,3 +1,5 @@
+@use "../abstracts/" as *;
+
 .skillsPage {
   .skillsContainer {
     position: relative;
@@ -16,8 +18,8 @@
       img {
         align-self: center;
         justify-self: center;
-        display: block;
         height: 125px;
+        transform-origin: center;
       }
 
       .plIcons {
