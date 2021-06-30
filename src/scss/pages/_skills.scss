@@ -15,14 +15,32 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 125px;
 
-      img {
-        align-self: center;
-        justify-self: center;
-        height: 125px;
-        transform-origin: center;
-      }
-
       .plIcons {
+        transform: scale(0.8);
+        position: relative;
+        display: grid;
+
+        * {
+          pointer-events: none;
+        }
+
+        img {
+          align-self: center;
+          justify-self: center;
+          height: 125px;
+          transform-origin: center;
+        }
+
+        p {
+          text-align: center;
+          font-size: 1.5em;
+          font-weight: 450;
+          position: absolute;
+          width: 100%;
+          bottom: -1.5em;
+          opacity: 0;
+        }
+
         &:hover {
           cursor: pointer;
         }

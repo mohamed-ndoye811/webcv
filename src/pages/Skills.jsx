@@ -64,14 +64,48 @@ export default function Skills(props) {
     });
   }
 
-  function hoverAnimation(target) {
-    anime({
-      targets: target,
-      rotate: [0, "360deg"],
-      scale: [1, 1.2],
-      duration: 600,
+  function hoverEnterAnimation(target) {
+    let tl = anime.timeline({
+      duration: 800,
       easing: "easeOutExpo",
     });
+    // Global language card scale animation
+    tl.add({
+      targets: target,
+      scale: 1.3,
+    });
+
+    // Global language card text animation
+    tl.add(
+      {
+        targets: target.children[1],
+        opacity: [0, 1],
+        translateY: [-30, 0],
+      },
+      "-=800"
+    );
+  }
+
+  function hoverLeaveAnimation(target) {
+    let tl = anime.timeline({
+      duration: 800,
+      easing: "easeOutExpo",
+    });
+    // Global language card scale animation
+    tl.add({
+      targets: target,
+      scale: 0.8,
+    });
+
+    // Global language card text animation
+    tl.add(
+      {
+        targets: target.children[1],
+        opacity: 0,
+        translateY: -30,
+      },
+      "-=800"
+    );
   }
 
   useEffect(() => {
@@ -104,15 +138,23 @@ export default function Skills(props) {
           <div className="plIconsContainer">
             {languages.map((language, key) => {
               return (
-                <div className="plIcons" key={language.key}>
+                <div
+                  className="plIcons"
+                  key={language.key}
+                  onMouseEnter={(target) => {
+                    console.log(target.target.children[1]);
+                    hoverEnterAnimation(target.target);
+                  }}
+                  onMouseLeave={(target) => {
+                    hoverLeaveAnimation(target.target);
+                  }}
+                >
                   <img
                     src={"./img/programming-languages/" + language.img + ".svg"}
                     alt={language.name + " icon"}
-                    onMouseOver={(target) => {
-                      console.log(target.target);
-                      hoverAnimation(target.target);
-                    }}
+                    className="iconImg"
                   />
+                  <p className="iconName">{language.name}</p>
                 </div>
               );
             })}
