@@ -46,19 +46,24 @@ export default function Education(props) {
   }
 
   useEffect(() => {
+    anime({
+      targets: ".container, .pageTitle",
+      opacity: [0, 0],
+    });
+
     if (props.startAnimations) {
       setTimeout(() => {
         anime({
           targets: ".container",
           opacity: [0, 1],
         });
-        loadEnterAnimation(1000);
+
+        anime({
+          targets: ".pageTitle",
+          opacity: [0, 0.2],
+        });
+        loadEnterAnimation(1200);
       }, 800);
-    } else {
-      anime({
-        targets: ".container",
-        opacity: [0, 0],
-      });
     }
   });
 

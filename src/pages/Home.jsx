@@ -45,19 +45,24 @@ export default function Home(props) {
   }
 
   useEffect(() => {
+    anime({
+      targets: ".container, .pageTitle",
+      opacity: [0, 0],
+    });
+
     if (props.startAnimations) {
       setTimeout(() => {
         anime({
           targets: ".container",
           opacity: [0, 1],
         });
+
+        anime({
+          targets: ".pageTitle",
+          opacity: [0, 0.2],
+        });
         loadEnterAnimation(1200);
       }, 800);
-    } else {
-      anime({
-        targets: ".container",
-        opacity: [0, 0],
-      });
     }
   });
 
