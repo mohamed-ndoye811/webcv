@@ -1,4 +1,5 @@
-import { React } from "react";
+import { React, useEffect } from "react";
+import anime from "animejs";
 
 //---- Component imports
 import PageTitle from "../components/PageTitle";
@@ -30,6 +31,36 @@ export default function Education(props) {
       year: 2021,
     },
   ];
+
+  function loadEnterAnimation(duration) {
+    let tl = anime.timeline();
+
+    tl.add({
+      targets: ".educationCard",
+      translateY: [150, 0],
+      opacity: [0, 1],
+      easing: "easeOutQuint",
+      duration: duration,
+      delay: anime.stagger(100),
+    });
+  }
+
+  useEffect(() => {
+    if (props.startAnimations) {
+      setTimeout(() => {
+        anime({
+          targets: ".container",
+          opacity: [0, 1],
+        });
+        loadEnterAnimation(1000);
+      }, 800);
+    } else {
+      anime({
+        targets: ".container",
+        opacity: [0, 0],
+      });
+    }
+  });
 
   return (
     <>

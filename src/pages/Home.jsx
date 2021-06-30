@@ -46,17 +46,13 @@ export default function Home(props) {
 
   useEffect(() => {
     if (props.startAnimations) {
-      anime({
-        targets: ".container",
-        opacity: 0,
-      });
       setTimeout(() => {
         anime({
           targets: ".container",
           opacity: [0, 1],
         });
         loadEnterAnimation(1200);
-      }, 1500);
+      }, 800);
     } else {
       anime({
         targets: ".container",

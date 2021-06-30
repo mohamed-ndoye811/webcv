@@ -2,33 +2,24 @@
 
 .experiencePage {
   .experienceContainer {
-    position: relative;
-    width: 66%;
-    min-height: 90vh;
-    top: 10vh;
-    display: flex;
-
     .experienceList {
-      display: flex;
       width: 100%;
       height: -webkit-fit-content;
       height: -moz-fit-content;
       height: fit-content;
+      display: flex;
       flex-direction: column;
       gap: 25px;
       justify-self: center;
       align-self: center;
-      transform: translateY(-12.5%);
+      margin-top: 11vh;
 
       .experienceCard {
-        display: block;
         padding: 2em 1.5em;
         height: 150px;
         text-align: right;
         text-transform: uppercase;
-        transition: all 0.6s;
         border-radius: 10px;
-        position: relative;
 
         .year {
           position: absolute;

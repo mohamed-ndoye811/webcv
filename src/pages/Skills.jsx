@@ -51,6 +51,7 @@ export default function Skills(props) {
   ];
 
   function loadEnterAnimation(duration) {
+    console.log("hey");
     let tl = anime.timeline({
       easing: "easeOutQuint",
       duration: duration,
@@ -110,11 +111,6 @@ export default function Skills(props) {
 
   useEffect(() => {
     if (props.startAnimations) {
-      anime({
-        targets: ".container",
-        opacity: 0,
-      });
-
       setTimeout(() => {
         anime({
           targets: ".container",
