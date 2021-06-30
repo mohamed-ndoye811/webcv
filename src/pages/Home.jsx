@@ -82,7 +82,7 @@ export default function Home(props) {
           </div>
         </div>
 
-        <div className="profilePic" style={{ transform: "scale(1.5) " }}>
+        <div className="profilePic" style={{ transform: "scale(2) " }}>
           <svg
             id="profilePicSvg"
             xmlns="http://www.w3.org/2000/svg"
