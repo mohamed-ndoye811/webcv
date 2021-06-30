@@ -13,8 +13,11 @@ import Education from "./pages/Education";
 
 // COMPONENTS IMPORTS
 import Menu from "./components/Menu";
+import ComingSoon from "./pages/ComingSoon";
 
 function App() {
+  var windowWidth = window.innerWidth;
+
   // States definitions
   const [opnLoadDisplay, setopnLoadDisplay] = useState(true); // The state of the opening Loader
   const [pageContentDisplay, setpageContentDisplay] = useState(false);
@@ -83,14 +86,20 @@ function App() {
         ) : null}
         {pageContentDisplay ? (
           <>
-            <Menu startAnimations={startContentAnimations}></Menu>
-            {routesList.map((route) => {
-              return (
-                <Route key={route.key} exact path={route.path}>
-                  {route.component}
-                </Route>
-              );
-            })}
+            {windowWidth < 1024 ? (
+              <ComingSoon />
+            ) : (
+              <>
+                <Menu startAnimations={startContentAnimations}></Menu>
+                {routesList.map((route) => {
+                  return (
+                    <Route key={route.key} exact path={route.path}>
+                      {route.component}
+                    </Route>
+                  );
+                })}
+              </>
+            )}
           </>
         ) : (
           ""
