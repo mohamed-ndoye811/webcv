@@ -47,11 +47,11 @@
         }
 
         p {
-          text-align: center;
+          align-self: center;
+          justify-self: center;
           font-size: 1.5em;
           font-weight: 450;
           position: absolute;
-          width: 100%;
           bottom: -1.75em;
           opacity: 0;
 
