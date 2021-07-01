@@ -1,0 +1,134 @@
+@use '../abstracts/' as *;
+
+.menuContainer {
+  height: 100vh;
+  width: 100vw;
+  z-index: 50;
+  position: absolute;
+  pointer-events: none;
+
+  .hamburgerIcon {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 4vh;
+    z-index: 52;
+    display: grid;
+    place-content: center;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    pointer-events: all;
+
+    .bar {
+      position: relative;
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: $clr-primary;
+      border-radius: 50px;
+      opacity: 0;
+
+      &:last-child {
+        margin-top: 8px;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .menuBackground {
+    height: 100%;
+    width: 100%;
+    background-color: $clr-primary;
+    transform: translateY(-100%);
+  }
+
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: absolute;
+    display: grid;
+    place-content: center;
+    z-index: 51;
+    opacity: 0;
+  }
+
+  nav {
+    height: 80vh;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 7em 0;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      text-align: center;
+      align-items: center;
+      justify-content: space-evenly;
+
+      li {
+        overflow: hidden;
+        position: relative;
+        .navLinks {
+          display: block;
+          text-decoration: none;
+          color: $clr-secondary;
+          font-size: 3em;
+          font-weight: 700;
+          text-transform: uppercase;
+          pointer-events: all;
+
+          &.coming-soon {
+            pointer-events: none;
+            text-decoration: line-through;
+
+            &::after {
+              content: "Coming soon";
+              color: $clr-secondary;
+              background-color: transparent;
+              display: block;
+              height: -webkit-fit-content;
+              height: -moz-fit-content;
+              height: fit-content;
+              width: -webkit-fit-content;
+              width: -moz-fit-content;
+              width: fit-content;
+              font-size: 0.25em;
+              position: absolute;
+              right: 0;
+              bottom: 0.1em;
+            }
+          }
+
+          @include screen-max($tablet) {
+            font-size: 5em;
+          }
+
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 4px;
+            bottom: 15%;
+            background-color: $clr-secondary;
+            transition: width 0.4s cubic-bezier(0.32, 0.58, 0.34, 0.99);
+            border-radius: 100px;
+          }
+
+          &:not(.no-hover):hover {
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

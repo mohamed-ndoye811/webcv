@@ -1,0 +1,70 @@
+@use "../abstracts/" as *;
+
+.skillsPage {
+  .skillsContainer {
+    position: relative;
+    width: 66%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+
+    .plIconsContainer {
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8em;
+
+      @include screen-max($desktop) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include screen-max($tablet) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+      }
+
+      .plIcons {
+        position: relative;
+        display: grid;
+
+        * {
+          pointer-events: none;
+        }
+
+        img {
+          align-self: center;
+          justify-self: center;
+          height: 7em;
+          transform-origin: center;
+          transform: scale(0.8);
+          @include screen-max($desktop) {
+            height: 75px;
+          }
+
+          @include screen-max($tablet) {
+            height: 50px;
+          }
+        }
+
+        p {
+          align-self: center;
+          justify-self: center;
+          font-size: 1.5em;
+          font-weight: 450;
+          position: absolute;
+          bottom: -1.75em;
+          opacity: 0;
+
+          @include screen-max($tablet) {
+            font-size: 2em;
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

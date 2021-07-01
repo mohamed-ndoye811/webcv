@@ -1,0 +1,31 @@
+@use '../abstracts/' as *;
+
+.pageTitle {
+  position: fixed;
+  color: $clr-primary;
+  transform-origin: left top;
+  transform: rotateZ(-90deg);
+  text-transform: uppercase;
+  font-size: 5em;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  top: 95%;
+  left: 0;
+  opacity: 0.2;
+  overflow: hidden;
+
+  @include screen-max($desktop) {
+    font-size: 4.25em;
+  }
+
+  @include screen-max($tablet) {
+    font-size: 6em;
+  }
+
+  .titleLetters {
+    position: relative;
+    display: inline-block;
+    transform: translateY(-150px);
+  }
+}

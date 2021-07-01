@@ -1,0 +1,164 @@
+@use "../abstracts/" as *;
+
+.educationPage {
+  .educationContainer {
+    .educationList {
+      width: 100%;
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      justify-self: center;
+      align-self: center;
+      margin-top: 15vh;
+
+      @include screen-max($desktop) {
+        margin-top: 10vh;
+        height: 90vh;
+      }
+
+      .educationCard {
+        padding: 2em 1.5em;
+        height: 150px;
+        text-align: right;
+        text-transform: uppercase;
+        border-radius: 10px;
+
+        @include screen-max($desktop) {
+          height: 150px;
+          padding: 5em 3em;
+        }
+
+        @include screen-max($tablet) {
+          height: 100px;
+          padding: 5em 3em;
+        }
+
+        .year {
+          position: absolute;
+          font-size: 2em;
+          font-weight: 700;
+          top: 5px;
+          opacity: 0.7;
+          @include screen-max($tablet) {
+            opacity: 0.6;
+          }
+        }
+        .name {
+          font-size: 1.75em;
+          font-weight: 700;
+          @include screen-max($tablet) {
+            font-size: 2.25em;
+          }
+        }
+
+        .school {
+          font-size: 1.2em;
+          font-style: italic;
+          font-weight: 300;
+          @include screen-max($tablet) {
+            font-size: 1.5em;
+            font-weight: 500;
+            opacity: 0.6;
+          }
+        }
+
+        &:first-child {
+          background-color: $clr-primary;
+          color: $clr-secondary;
+          box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.3);
+          cursor: default;
+
+          &::before {
+            content: "";
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            border-radius: inherit;
+            opacity: 0.2;
+            filter: blur(1px);
+            z-index: -1;
+            position: absolute;
+            background-image: linear-gradient(
+                30deg,
+                #445 12%,
+                transparent 12.5%,
+                transparent 87%,
+                #445 87.5%,
+                #445
+              ),
+              linear-gradient(
+                150deg,
+                #445 12%,
+                transparent 12.5%,
+                transparent 87%,
+                #445 87.5%,
+                #445
+              ),
+              linear-gradient(
+                30deg,
+                #445 12%,
+                transparent 12.5%,
+                transparent 87%,
+                #445 87.5%,
+                #445
+              ),
+              linear-gradient(
+                150deg,
+                #445 12%,
+                transparent 12.5%,
+                transparent 87%,
+                #445 87.5%,
+                #445
+              ),
+              linear-gradient(
+                60deg,
+                #99a 25%,
+                transparent 25.5%,
+                transparent 75%,
+                #99a 75%,
+                #99a
+              ),
+              linear-gradient(
+                60deg,
+                #99a 25%,
+                transparent 25.5%,
+                transparent 75%,
+                #99a 75%,
+                #99a
+              );
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+          }
+
+          &::after {
+            content: "En cours..";
+            position: absolute;
+            text-transform: uppercase;
+            left: 1.5em;
+            z-index: 1;
+            bottom: 15%;
+            font-size: 1.5em;
+            font-style: italic;
+            font-weight: 500;
+            color: $clr-secondary;
+            opacity: 0.7;
+
+            @include screen-max($desktop) {
+              left: 2.25em;
+              font-weight: 600;
+            }
+
+            @include screen-max($tablet) {
+              left: 2.25em;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+}

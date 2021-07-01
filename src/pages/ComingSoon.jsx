@@ -73,7 +73,7 @@ const ComingSoon = (props) => {
     } else {
       anime({
         targets: ".container",
-        opacity: [0, 0],
+        opacity: [0, 1],
       });
     }
   }, [props.startAnimations]);
@@ -85,7 +85,7 @@ const ComingSoon = (props) => {
           <h2 className="title">-- WORK IN PROGRESS --</h2>
           <br />
           <p className="text">
-            Hey, Mohamed from the past speaking to you! <br />
+            Hey, Mohamed from the past speaking to you again! <br />
             Just a quick message to talk about this page. Unfortunately, there
             isn't any content yet on the page. Mohamed is still working on it.
             So for now all I have to s ay is welcome to this temporary page.
