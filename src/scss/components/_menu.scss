@@ -59,6 +59,8 @@
 
   nav {
     height: 80vh;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     padding: 7em 0;
 
@@ -81,6 +83,28 @@
           font-weight: 700;
           text-transform: uppercase;
           pointer-events: all;
+
+          &.coming-soon {
+            pointer-events: none;
+            text-decoration: line-through;
+
+            &::after {
+              content: "Coming soon";
+              color: $clr-secondary;
+              background-color: transparent;
+              display: block;
+              height: -webkit-fit-content;
+              height: -moz-fit-content;
+              height: fit-content;
+              width: -webkit-fit-content;
+              width: -moz-fit-content;
+              width: fit-content;
+              font-size: 0.25em;
+              position: absolute;
+              right: 0;
+              bottom: 0.1em;
+            }
+          }
 
           @include screen-max($tablet) {
             font-size: 5em;

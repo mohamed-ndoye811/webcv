@@ -43,10 +43,15 @@ export default function Icon(props) {
       name: "Svelte",
     },
   ];
+
   return (
     <>
       <img
-        src={"./img/programming-languages/" + props.src + ".svg"}
+        src={
+          "./img/programming-languages/" +
+          languages.find((pl) => pl.img === props.src).img +
+          ".svg"
+        }
         alt={props.alt}
         className="iconImg"
       ></img>

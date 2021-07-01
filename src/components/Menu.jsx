@@ -190,11 +190,9 @@ export default function Menu(props) {
               return (
                 <li key={link.key}>
                   <Link
-                    className={
-                      menuDisplayed && !navLinkClicked
-                        ? "navLinks"
-                        : "navLinks no-hover"
-                    }
+                    className={`navLinks ${
+                      menuDisplayed && !navLinkClicked ? "" : "no-hover"
+                    } ${link.title === "Work" ? "coming-soon" : ""}`}
                     onClick={() => {
                       menuDisplayed = menuDisplayed ? false : true;
                       hamIconToggle("hide");
