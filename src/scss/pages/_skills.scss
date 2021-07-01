@@ -13,10 +13,18 @@
       width: 100%;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 125px;
+      gap: 8em;
+
+      @include screen-max($desktop) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include screen-max($tablet) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+      }
 
       .plIcons {
-        transform: scale(0.8);
         position: relative;
         display: grid;
 
@@ -27,8 +35,15 @@
         img {
           align-self: center;
           justify-self: center;
-          height: 125px;
+          height: 5em;
           transform-origin: center;
+          @include screen-max($desktop) {
+            height: 75px;
+          }
+
+          @include screen-max($tablet) {
+            height: 50px;
+          }
         }
 
         p {
@@ -37,8 +52,12 @@
           font-weight: 450;
           position: absolute;
           width: 100%;
-          bottom: -1.5em;
+          bottom: -1.75em;
           opacity: 0;
+
+          @include screen-max($tablet) {
+            font-size: 2em;
+          }
         }
 
         &:hover {

@@ -3,6 +3,7 @@ import anime from "animejs";
 
 //---- Component imports
 import PageTitle from "../components/PageTitle";
+import Icon from "../components/Icon";
 
 //---- Utils imports
 
@@ -51,7 +52,6 @@ export default function Skills(props) {
   ];
 
   function loadEnterAnimation(duration) {
-    console.log("hey");
     let tl = anime.timeline({
       easing: "easeOutQuint",
       duration: duration,
@@ -63,6 +63,20 @@ export default function Skills(props) {
       opacity: [0, 1],
       delay: anime.stagger(50),
     });
+
+    if (window.screen.width <= 768) {
+      // Global language card text animation
+      tl.add(
+        {
+          targets: ".iconName",
+          opacity: [0, 1],
+          translateY: [-30, 5],
+          skewY: [-25, 0],
+          delay: anime.stagger(75),
+        },
+        "-=1500"
+      );
+    }
   }
 
   function hoverEnterAnimation(target) {
@@ -150,11 +164,7 @@ export default function Skills(props) {
                     hoverLeaveAnimation(target.target);
                   }}
                 >
-                  <img
-                    src={"./img/programming-languages/" + language.img + ".svg"}
-                    alt={language.name + " icon"}
-                    className="iconImg"
-                  />
+                  <Icon src={language.img} alt={language.name + " icon"} />
                   <p className="iconName">{language.name}</p>
                 </div>
               );

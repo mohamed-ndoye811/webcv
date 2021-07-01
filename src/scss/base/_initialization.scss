@@ -7,7 +7,15 @@ body {
   height: 100%;
   width: 100%;
   font-family: "Poppins";
-  font-size: 1rem;
+  font-size: 20px;
+
+  @include screen-max($desktop) {
+    font-size: 12px;
+  }
+
+  @include screen-max($tablet) {
+    font-size: 6px;
+  }
 }
 
 #root {

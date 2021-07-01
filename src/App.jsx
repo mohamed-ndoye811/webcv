@@ -86,20 +86,14 @@ function App() {
         ) : null}
         {pageContentDisplay ? (
           <>
-            {windowWidth < 1024 ? (
-              <ComingSoon />
-            ) : (
-              <>
-                <Menu startAnimations={startContentAnimations}></Menu>
-                {routesList.map((route) => {
-                  return (
-                    <Route key={route.key} exact path={route.path}>
-                      {route.component}
-                    </Route>
-                  );
-                })}
-              </>
-            )}
+            <Menu startAnimations={startContentAnimations}></Menu>
+            {routesList.map((route) => {
+              return (
+                <Route key={route.key} exact path={route.path}>
+                  {route.component}
+                </Route>
+              );
+            })}
           </>
         ) : (
           ""

@@ -82,6 +82,10 @@
           text-transform: uppercase;
           pointer-events: all;
 
+          @include screen-max($tablet) {
+            font-size: 5em;
+          }
+
           &::after {
             content: "";
             display: block;

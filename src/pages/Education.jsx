@@ -41,7 +41,7 @@ export default function Education(props) {
       opacity: [0, 1],
       easing: "easeOutQuint",
       duration: duration,
-      delay: anime.stagger(100),
+      delay: anime.stagger(125),
     });
   }
 

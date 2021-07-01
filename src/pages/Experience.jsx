@@ -8,15 +8,19 @@ export default function Experience(props) {
   let experienceList = [
     {
       key: 1,
-      name: "Stage lsr var, 3 semaines, toulon",
-      school: "Programmation de plugins SketchUp et Revit",
-      year: 2020,
+      year: 2021,
+      name: "Stage lsr var",
+      durationLocation: "3 semaines, toulon",
+      tasks: "Création de plugins SketchUp et Revit",
+      languageUsed: ["html", "css", "javascript", "svelte"],
     },
     {
       key: 2,
-      name: "Stage Layher, 2 mois, paris",
-      school: "Redesign et re-développement de leur site internet",
-      year: 2021,
+      year: 2020,
+      name: "Stage Layher",
+      durationLocation: " 2 mois, paris",
+      tasks: "Refonte complète du site internet",
+      languageUsed: ["c_sharp", "ruby"],
     },
   ];
 
@@ -29,7 +33,7 @@ export default function Experience(props) {
       opacity: [0, 1],
       easing: "easeOutQuint",
       duration: duration,
-      delay: anime.stagger(100),
+      delay: anime.stagger(125),
     });
   }
 
@@ -70,7 +74,10 @@ export default function Experience(props) {
                   <div className="experienceCard" key={experience.key}>
                     <div className="year">{experience.year}</div>
                     <div className="name">{experience.name}</div>
-                    <div className="school">{experience.school}</div>
+                    <div className="durationLocation">
+                      {experience.durationLocation}
+                    </div>
+                    <div className="tasks">{experience.tasks}</div>
                   </div>
                 );
               })}
