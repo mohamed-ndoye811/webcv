@@ -13,11 +13,8 @@ import Education from "./pages/Education";
 
 // COMPONENTS IMPORTS
 import Menu from "./components/Menu";
-import ComingSoon from "./pages/ComingSoon";
 
 function App() {
-  var windowWidth = window.innerWidth;
-
   // States definitions
   const [opnLoadDisplay, setopnLoadDisplay] = useState(true); // The state of the opening Loader
   const [pageContentDisplay, setpageContentDisplay] = useState(false);
