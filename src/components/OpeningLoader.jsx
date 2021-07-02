@@ -32,11 +32,19 @@ export default function OpeningLoader(props) {
       easing: "easeInOutQuart",
     });
 
-    tl.add({
-      targets: "#leftSide",
-      width: ["100%", 0],
-      delay: delay,
-    });
+    if (window.screen.width < 1366) {
+      tl.add({
+        targets: "#leftSide",
+        height: ["100%", 0],
+        delay: delay,
+      });
+    } else {
+      tl.add({
+        targets: "#leftSide",
+        width: ["100%", 0],
+        delay: delay,
+      });
+    }
 
     tl.finished.then(() => {
       props.finishedToggle();

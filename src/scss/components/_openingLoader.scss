@@ -8,6 +8,10 @@
   overflow: hidden;
   z-index: 100;
 
+  @include screen-max($desktop) {
+    flex-direction: column;
+  }
+
   .side {
     font-weight: 700;
     font-size: 4.125em;
