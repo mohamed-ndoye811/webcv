@@ -54,8 +54,8 @@
           font-weight: 500;
           margin-top: -3px;
           @include screen-max($tablet) {
-            font-size: 1.5em;
-            font-weight: 500;
+            font-size: 1.7em;
+            font-weight: 400;
             opacity: 0.6;
           }
         }
@@ -65,8 +65,8 @@
           font-style: italic;
           font-weight: 300;
           @include screen-max($tablet) {
-            font-size: 1.5em;
-            font-weight: 400;
+            font-size: 1.6em;
+            font-weight: 600;
             opacity: 0.6;
           }
         }
