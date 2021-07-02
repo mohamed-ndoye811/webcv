@@ -41,10 +41,6 @@
           @include screen-max($desktop) {
             height: 75px;
           }
-
-          @include screen-max($tablet) {
-            height: 50px;
-          }
         }
 
         p {
@@ -57,7 +53,7 @@
           opacity: 0;
 
           @include screen-max($tablet) {
-            font-size: 2em;
+            font-size: 2.5em;
           }
         }
 
