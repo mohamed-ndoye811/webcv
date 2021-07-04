@@ -86,7 +86,7 @@ export default function Menu(props) {
         tl.add({
           targets: ".navLinks",
           translateY: [0, "100%"],
-          delay: anime.stagger(50),
+          delay: anime.stagger(50, { from: "last" }),
           duration: 600,
           easing: "easeInQuint",
         });
