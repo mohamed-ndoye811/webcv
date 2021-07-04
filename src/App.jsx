@@ -93,6 +93,7 @@ function App() {
                   </Route>
                 );
               })}
+              <Route component={PageNotFound}></Route>
             </Switch>
           </>
         ) : (
