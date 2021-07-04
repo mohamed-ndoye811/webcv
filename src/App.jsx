@@ -1,6 +1,6 @@
 import "./scss/main.scss";
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import OpeningLoader from "./components/OpeningLoader";
 
@@ -10,6 +10,7 @@ import Works from "./pages/Works";
 import Experience from "./pages/Experience";
 import Skills from "./pages/Skills";
 import Education from "./pages/Education";
+import PageNotFound from "./pages/PageNotFound";
 
 // COMPONENTS IMPORTS
 import Menu from "./components/Menu";
@@ -84,13 +85,15 @@ function App() {
         {pageContentDisplay ? (
           <>
             <Menu startAnimations={startContentAnimations}></Menu>
-            {routesList.map((route) => {
-              return (
-                <Route key={route.key} exact path={route.path}>
-                  {route.component}
-                </Route>
-              );
-            })}
+            <Switch>
+              {routesList.map((route) => {
+                return (
+                  <Route key={route.key} exact path={route.path}>
+                    {route.component}
+                  </Route>
+                );
+              })}
+            </Switch>
           </>
         ) : (
           ""
