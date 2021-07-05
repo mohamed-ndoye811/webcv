@@ -14,8 +14,27 @@
       align-self: center;
       margin-top: 11vh;
 
+      .link {
+        text-decoration: none;
+        color: $clr-primary;
+        text-transform: none;
+
+        .experienceCard {
+          transition: all 0.4s;
+          padding: 3.5em 1.5em;
+          height: 150px;
+          text-align: right;
+          text-transform: uppercase;
+          border-radius: 10px;
+
+          &:hover {
+            box-shadow: 0 5px 15px rgba($color: #000000, $alpha: 0.4);
+          }
+        }
+      }
+
       .experienceCard {
-        padding: 2em 1.5em;
+        padding: 3.5em 1.5em;
         height: 150px;
         text-align: right;
         text-transform: uppercase;
@@ -23,12 +42,12 @@
 
         @include screen-max($desktop) {
           height: 150px;
-          padding: 5em 3em;
+          padding: 5em 1.5em;
         }
 
         @include screen-max($tablet) {
           height: 100px;
-          padding: 5em 3em;
+          padding: 5em 1.5em;
         }
 
         .year {

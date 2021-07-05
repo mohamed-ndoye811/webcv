@@ -8,6 +8,14 @@
     display: grid;
     place-content: center;
 
+    @include screen-max($desktop) {
+      width: 75%;
+    }
+
+    @include screen-max($tablet) {
+      width: 75%;
+    }
+
     .plIconsContainer {
       margin: 0 auto;
       width: 100%;
@@ -39,7 +47,10 @@
           transform-origin: center;
           transform: scale(0.8);
           @include screen-max($desktop) {
-            height: 75px;
+            height: 125px;
+          }
+          @include screen-max($tablet) {
+            height: 80px;
           }
         }
 

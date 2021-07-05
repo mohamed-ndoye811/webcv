@@ -65,4 +65,12 @@ ul {
   width: 66%;
   margin: 0 auto;
   opacity: 0;
+
+  @include screen-max($desktop) {
+    width: 85%;
+  }
+
+  @include screen-max($tablet) {
+    width: 75%;
+  }
 }

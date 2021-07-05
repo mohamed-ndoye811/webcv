@@ -12,6 +12,7 @@ export default function Experience(props) {
       name: "Stage lsr var",
       durationLocation: "3 semaines, toulon",
       tasks: "Création de plugins SketchUp et Revit",
+      link: "https://www.lsr83000.fr/",
       languageUsed: ["html", "css", "javascript", "svelte"],
     },
     {
@@ -71,14 +72,36 @@ export default function Experience(props) {
               })
               .map((experience) => {
                 return (
-                  <div className="experienceCard" key={experience.key}>
-                    <div className="year">{experience.year}</div>
-                    <div className="name">{experience.name}</div>
-                    <div className="durationLocation">
-                      {experience.durationLocation}
-                    </div>
-                    <div className="tasks">{experience.tasks}</div>
-                  </div>
+                  <>
+                    {experience.link ? (
+                      <a
+                        href={experience.link}
+                        className="link"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        <div className="experienceCard" key={experience.key}>
+                          <div className="year">{experience.year}</div>
+                          <div className="name">{experience.name}</div>
+                          <div className="durationLocation">
+                            {experience.durationLocation}
+                          </div>
+
+                          <div className="tasks">{experience.tasks}</div>
+                        </div>
+                      </a>
+                    ) : (
+                      <div className="experienceCard" key={experience.key}>
+                        <div className="year">{experience.year}</div>
+                        <div className="name">{experience.name}</div>
+                        <div className="durationLocation">
+                          {experience.durationLocation}
+                        </div>
+
+                        <div className="tasks">{experience.tasks}</div>
+                      </div>
+                    )}
+                  </>
                 );
               })}
           </div>
