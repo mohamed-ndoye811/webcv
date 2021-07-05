@@ -7,7 +7,7 @@ import Icon from "../components/Icon";
 
 //---- Utils imports
 
-export default function Skills(props) {
+export default function Competences(props) {
   let languages = [
     {
       key: 1,
@@ -148,7 +148,7 @@ export default function Skills(props) {
   return (
     <>
       <main className="skillsPage">
-        <PageTitle title="Skills" />
+        <PageTitle title="Competences" />
         <div className="container skillsContainer">
           <div className="plIconsContainer">
             {languages.map((language, key) => {

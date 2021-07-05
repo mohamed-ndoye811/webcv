@@ -69,7 +69,7 @@ export default function Home(props) {
   return (
     <main className="homePage">
       <div className="container homeContainer">
-        <PageTitle title="Home" />
+        <PageTitle title="Accueil" />
         <div className="text">
           <div className="textWrapper">
             <span>I am a</span>

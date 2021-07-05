@@ -55,11 +55,19 @@
   }
 
   nav {
-    height: 80vh;
+    height: 100vh;
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
     padding: 7em 0;
+
+    @include screen-max($desktop) {
+      height: 90vh;
+    }
+
+    @include screen-max($tablet) {
+      height: 70vh;
+    }
 
     ul {
       display: flex;
@@ -76,7 +84,10 @@
           display: block;
           text-decoration: none;
           color: $clr-secondary;
-          font-size: 3em;
+          font-size: 2.5em;
+          height: -webkit-fit-content;
+          height: -moz-fit-content;
+          height: fit-content;
           font-weight: 700;
           text-transform: uppercase;
           pointer-events: all;
@@ -101,6 +112,10 @@
               right: 0;
               bottom: 0.1em;
             }
+          }
+
+          @include screen-max($desktop) {
+            font-size: 3.5em;
           }
 
           @include screen-max($tablet) {

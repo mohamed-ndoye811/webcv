@@ -140,11 +140,12 @@ export default function Menu(props) {
   }
 
   const linksList = [
-    { key: 1, title: "Home", link: "/" },
+    { key: 1, title: "Accueil", link: "/" },
     { key: 2, title: "Work", link: "/work" },
-    { key: 3, title: "Education", link: "/education" },
-    { key: 4, title: "Skills", link: "/skills" },
+    { key: 3, title: "Formation", link: "/formation" },
+    { key: 4, title: "Competences", link: "/competences" },
     { key: 5, title: "Experience", link: "/experience" },
+    { key: 6, title: "Contact", link: "/contact" },
   ];
 
   // Enter animation
@@ -192,7 +193,7 @@ export default function Menu(props) {
                   <Link
                     className={`navLinks ${
                       menuDisplayed && !navLinkClicked ? "" : "no-hover"
-                    } ${link.title === "Work" ? "coming-soon" : ""}`}
+                    } ${((link.title === "Work") || (link.title === "Contact"))  ? "coming-soon" : ""}`}
                     onClick={() => {
                       menuDisplayed = menuDisplayed ? false : true;
                       hamIconToggle("hide");

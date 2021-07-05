@@ -4,7 +4,7 @@ import anime from "animejs";
 //---- Component imports
 import PageTitle from "../components/PageTitle";
 
-export default function Education(props) {
+export default function Formation(props) {
   let educationList = [
     {
       key: 1,
@@ -69,7 +69,7 @@ export default function Education(props) {
 
   return (
     <>
-      <PageTitle title="Education" />
+      <PageTitle title="Formation" />
       <main className="educationPage">
         <div className="container educationContainer">
           <div className="educationList">
