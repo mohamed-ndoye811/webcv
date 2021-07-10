@@ -9,7 +9,7 @@
       height: fit-content;
       display: flex;
       flex-direction: column;
-      gap: 25px;
+      gap: 2.5em;
       justify-self: center;
       align-self: center;
       margin-top: 11vh;
@@ -18,45 +18,37 @@
         text-decoration: none;
         color: $clr-primary;
         text-transform: none;
+        transition: all 0.6s;
 
-        .experienceCard {
-          transition: all 0.4s;
-          padding: 3.5em 1.5em;
-          height: 150px;
-          text-align: right;
-          text-transform: uppercase;
-          border-radius: 10px;
-
-          &:hover {
-            box-shadow: 0 5px 15px rgba($color: #000000, $alpha: 0.4);
-          }
+        &:hover {
+          box-shadow: 0 7px 15px rgba($color: #000000, $alpha: 0.4);
+          outline: 1px solid $clr-primary;
         }
       }
 
       .experienceCard {
-        padding: 3.5em 1.5em;
-        height: 150px;
+        padding: 1.5em 2em;
+        height: fit-content;
         text-align: right;
         text-transform: uppercase;
         border-radius: 10px;
 
         @include screen-max($desktop) {
-          height: 150px;
           padding: 5em 1.5em;
         }
 
         @include screen-max($tablet) {
-          height: 100px;
           padding: 5em 1.5em;
         }
 
         .year {
           position: absolute;
-          font-size: 3em;
+          font-size: 2.5em;
           font-weight: 700;
-          top: 5px;
+          line-height: 1em;
           opacity: 0.7;
           @include screen-max($tablet) {
+            font-size: 5em;
             opacity: 0.6;
           }
         }
@@ -69,9 +61,10 @@
         }
 
         .durationLocation {
-          font-size: 1.3em;
+          font-size: 1em;
           font-weight: 500;
-          margin-top: -3px;
+          margin-top: -0.5em;
+          opacity: 0.6;
           @include screen-max($tablet) {
             font-size: 1.7em;
             font-weight: 400;
@@ -80,14 +73,22 @@
         }
 
         .tasks {
-          font-size: 1.2em;
+          font-size: 1.1em;
           font-style: italic;
-          font-weight: 300;
+          font-weight: 500;
           @include screen-max($tablet) {
             font-size: 1.6em;
             font-weight: 600;
             opacity: 0.6;
           }
+        }
+
+        .linkIndication {
+          text-align: left;
+          opacity: 0.4;
+          position: absolute;
+          bottom: 1.5em;
+          text-transform: none;
         }
       }
     }
